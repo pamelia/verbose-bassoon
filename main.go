@@ -77,6 +77,7 @@ func main() {
 		}
 		w.Write([]byte("ok\n"))
 	})
+	mux.HandleFunc("/api/me", meHandler(os.Getenv("TRUST_PROXY_IDENTITY") == "true"))
 	mux.HandleFunc("/api/progress", progressHandler(db, os.Getenv("TRUST_PROXY_IDENTITY") == "true"))
 	mux.Handle("/", http.FileServer(http.FS(static)))
 
@@ -90,6 +91,25 @@ func main() {
 	}
 	log.Printf("listening on %s", server.Addr)
 	log.Fatal(server.ListenAndServe())
+}
+
+func meHandler(trustProxyIdentity bool) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if !trustProxyIdentity {
+			http.Error(w, "profile is not enabled", http.StatusServiceUnavailable)
+			return
+		}
+		if r.Header.Get("X-Forwarded-User") == "" {
+			http.Error(w, "authentication required", http.StatusUnauthorized)
+			return
+		}
+		if r.Method != http.MethodGet {
+			w.Header().Set("Allow", "GET")
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		writeJSON(w, map[string]string{"name": r.Header.Get("X-Forwarded-Name")})
+	}
 }
 
 func progressHandler(db *sql.DB, trustProxyIdentity bool) http.HandlerFunc {
