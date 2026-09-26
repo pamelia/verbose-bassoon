@@ -8,6 +8,13 @@ test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
   assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs"]));
 });
 
+test("profession prompts identify the profession instead of asking for a guess", () => {
+  const professionCards = cards.filter(({ kind }) => kind === "Professions");
+  assert.equal(professionCards.length, 18);
+  assert.ok(professionCards.every(({ translation }) => translation.startsWith("Profession: ")));
+  assert.equal(cards.find(({ id }) => id === "profession-business-owner-m").translation, "Profession: business owner.");
+});
+
 test("answer matching ignores punctuation, case, and missing accents", () => {
   assert.equal(normalize(" ¿CÓMO estás? "), "como estas");
   assert.equal(isCorrect(cards.find(({ id }) => id === "how-are-you"), "como estas"), true);

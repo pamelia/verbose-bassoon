@@ -83,14 +83,14 @@ const nationalities = [
 ]);
 
 const professions = [
-  ["business-owner", "empresario", "empresaria"], ["photographer", "fotógrafo", "fotógrafa"],
-  ["dentist", "dentista", "dentista"], ["doctor", "médico", "médica"],
-  ["journalist", "periodista", "periodista"], ["engineer", "ingeniero", "ingeniera"],
-  ["teacher", "profesor", "profesora"], ["lawyer", "abogado", "abogada"],
-  ["waiter", "camarero", "camarera"],
-].flatMap(([slug, masculine, feminine]) => [
-  { id: `profession-${slug}-m`, topic: "people", kind: "Professions", prompt: `Él es ___.`, translation: "Complete with the Spanish profession.", person: "masculine singular", answers: [masculine], answer: masculine, note: "After ser, professions normally do not need un or una." },
-  { id: `profession-${slug}-f`, topic: "people", kind: "Professions", prompt: `Ella es ___.`, translation: "Complete with the Spanish profession.", person: "feminine singular", answers: [feminine], answer: feminine, note: masculine === feminine ? "This profession has the same form for men and women." : "The ending agrees with the person." },
+  ["business-owner", "business owner", "empresario", "empresaria"], ["photographer", "photographer", "fotógrafo", "fotógrafa"],
+  ["dentist", "dentist", "dentista", "dentista"], ["doctor", "doctor", "médico", "médica"],
+  ["journalist", "journalist", "periodista", "periodista"], ["engineer", "engineer", "ingeniero", "ingeniera"],
+  ["teacher", "teacher", "profesor", "profesora"], ["lawyer", "lawyer", "abogado", "abogada"],
+  ["waiter", "waiter", "camarero", "camarera"],
+].flatMap(([slug, english, masculine, feminine]) => [
+  { id: `profession-${slug}-m`, topic: "people", kind: "Professions", prompt: `Él es ___.`, translation: `Profession: ${english}.`, person: "masculine singular", answers: [masculine], answer: masculine, note: "After ser, professions normally do not need un or una." },
+  { id: `profession-${slug}-f`, topic: "people", kind: "Professions", prompt: `Ella es ___.`, translation: `Profession: ${english}.`, person: "feminine singular", answers: [feminine], answer: feminine, note: masculine === feminine ? "This profession has the same form for men and women." : "The ending agrees with the person." },
 ]);
 
 const regularVerbs = [
