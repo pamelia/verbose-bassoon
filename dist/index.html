@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4c542" />
+    <meta name="description" content="A short, ad-free Spanish practice session for beginner vocabulary and regular verbs." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4c542'/%3E%3Cpath d='M15 35h27l-8 8 5 5 17-17-17-17-5 5 8 8H15z' fill='%2319233b'/%3E%3C/svg%3E" />
+    <title>¡Dale! · Spanish practice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="¡Dale! home">¡Dale!</a>
+      <div class="streak" aria-label="Practice streak">
+        <span aria-hidden="true">☀</span><strong id="streak-count">0</strong><span>day streak</span>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="practice" aria-labelledby="practice-title">
+        <div class="session-head">
+          <div><p class="eyebrow">Today’s ten</p><h1 id="practice-title">Say it, don’t just spot it.</h1></div>
+          <div class="progress-copy"><strong id="current-number">1</strong> / 10</div>
+        </div>
+        <div class="progress-track" aria-label="Session progress"><span id="progress-bar"></span></div>
+
+        <fieldset class="difficulty">
+          <legend>How much help?</legend>
+          <label><input type="radio" name="difficulty" value="guided" /> With clues</label>
+          <label><input type="radio" name="difficulty" value="standard" checked /> Normal</label>
+          <label><input type="radio" name="difficulty" value="challenge" /> No clues</label>
+        </fieldset>
+
+        <article class="card" id="practice-card">
+          <div class="card-meta"><span id="card-kind">Regular verb</span><span id="card-person"></span></div>
+          <p class="verb" id="card-verb"></p>
+          <p class="prompt" id="card-prompt"></p>
+          <p class="translation" id="card-translation"></p>
+          <p class="clue" id="card-clue"></p>
+          <form id="answer-form" novalidate>
+            <label for="answer">Your answer</label>
+            <div class="answer-row">
+              <input id="answer" name="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="done" />
+              <button class="primary" type="submit">Check</button>
+            </div>
+          </form>
+          <div class="feedback" id="feedback" role="status" aria-live="polite" hidden>
+            <p class="feedback-title" id="feedback-title"></p><p id="feedback-copy"></p>
+            <button class="primary" id="next-button" type="button">Next</button>
+          </div>
+          <button class="reveal" id="reveal-button" type="button">I don’t know — show me</button>
+        </article>
+
+        <section class="summary" id="summary" hidden aria-labelledby="summary-title">
+          <p class="eyebrow">Session complete</p><h2 id="summary-title">¡Bien hecho!</h2>
+          <p class="score"><strong id="score">0</strong><span>/ 10 correct</span></p>
+          <p id="summary-copy"></p>
+          <button class="primary" id="restart-button" type="button">Practice ten more</button>
+        </section>
+      </section>
+
+      <aside class="side-note" aria-labelledby="why-title">
+        <p class="eyebrow">Why this works</p><h2 id="why-title">A tiny workout for recall.</h2>
+        <p>Type the answer before you see it. Missed prompts return sooner; remembered prompts get more space.</p>
+        <dl>
+          <div><dt id="due-count">0</dt><dd>ready to practise</dd></div>
+          <div><dt id="learned-count">0</dt><dd>prompts remembered</dd></div>
+        </dl>
+        <p class="balance-note">This trains recall. Keep your lessons, conversations, listening, and reading too—they do a different job.</p>
+      </aside>
+    </main>
+
+    <footer>
+      <span>Hecho para aprender, no para mostrar anuncios.</span>
+      <button id="reset-button" type="button">Reset progress</button>
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
