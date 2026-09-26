@@ -55,6 +55,8 @@ footer {
   transform: rotate(-2deg);
 }
 
+.topbar-meta { display: flex; gap: 18px; align-items: center; }
+.user-greeting { font-size: 0.95rem; font-weight: 850; }
 .streak { display: flex; gap: 7px; align-items: center; color: var(--muted); font-size: 0.9rem; }
 .streak span:first-child { color: var(--tomato); font-size: 1.3rem; }
 .streak strong { color: var(--ink); }
@@ -171,6 +173,7 @@ footer button { padding: 4px 0; color: inherit; background: transparent; border:
 @media (max-width: 560px) {
   .topbar, footer, .shell { width: min(100% - 24px, 1120px); }
   .topbar { min-height: 76px; }
+  .topbar-meta { gap: 5px; align-items: end; flex-direction: column; }
   .streak span:last-child { display: none; }
   .shell { gap: 24px; }
   .session-head { align-items: start; }

@@ -254,6 +254,19 @@ async function hydrateState() {
     // Local storage remains the offline source until a later save or reload retries.
   }
 }
+
+async function hydrateUser() {
+  try {
+    const response = await fetch("/api/me", { headers: { Accept: "application/json" } });
+    if (!response.ok) return;
+    const profile = await response.json();
+    if (!profile.name) return;
+    element("user-greeting").textContent = `Hey, ${profile.name}`;
+    element("user-greeting").hidden = false;
+  } catch {
+    // Greeting is optional; practice still works if profile loading fails.
+  }
+}
 function dayKey(date = new Date()) { return date.toISOString().slice(0, 10); }
 
 function updateStreak() {
@@ -401,5 +414,6 @@ if (typeof document !== "undefined") {
     saveState();
     startSession();
   });
+  hydrateUser();
   hydrateState().finally(startSession);
 }
