@@ -1,6 +1,15 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { cards, chooseSession, isCorrect, normalize, schedule } from "../dist/app.js";
+
+test("browser assets cannot stay stale after a deployment", () => {
+  const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
+  const nginx = readFileSync(new URL("../nginx.conf", import.meta.url), "utf8");
+  assert.match(html, /styles\.css\?v=\d+/);
+  assert.match(html, /app\.js\?v=\d+/);
+  assert.match(nginx, /Cache-Control "no-store"/);
+});
 
 test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
   assert.equal(cards.length, 205);
