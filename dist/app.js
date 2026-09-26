@@ -214,6 +214,10 @@ function loadState() {
   catch { return emptyState(); }
 }
 
+export function resetState(now = Date.now()) {
+  return { ...emptyState(), updatedAt: now };
+}
+
 let syncChain = Promise.resolve();
 
 async function uploadState(snapshot) {
@@ -236,6 +240,21 @@ function saveState() {
   state.updatedAt = Date.now();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   queueSync();
+}
+
+async function wipeProgress() {
+  if (!confirm("Wipe all saved practice progress and start over on every device?")) return;
+  const reset = resetState();
+  try {
+    await syncChain.catch(() => {});
+    await uploadState(JSON.stringify(reset));
+  } catch {
+    alert("Progress could not be wiped. Please try again.");
+    return;
+  }
+  state = reset;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  startSession();
 }
 
 async function hydrateState() {
@@ -408,12 +427,7 @@ if (typeof document !== "undefined") {
   document.querySelectorAll('input[name="difficulty"]').forEach((input) => input.addEventListener("change", () => {
     if (!answered) renderCard();
   }));
-  element("reset-button").addEventListener("click", () => {
-    if (!confirm("Reset all saved practice progress on every device?")) return;
-    state = emptyState();
-    saveState();
-    startSession();
-  });
+  element("reset-button").addEventListener("click", wipeProgress);
   hydrateUser();
   hydrateState().finally(startSession);
 }
