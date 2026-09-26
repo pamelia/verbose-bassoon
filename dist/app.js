@@ -196,12 +196,64 @@ export function schedule(progress, id, remembered, now = Date.now()) {
   return { ...progress, [id]: { level, attempts: previous.attempts + 1, due: now + (remembered ? INTERVALS[level] * DAY : 10 * 60_000) } };
 }
 
-function loadState() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? { cards: {}, streak: {} }; }
-  catch { return { cards: {}, streak: {} }; }
+function emptyState() { return { cards: {}, streak: {}, updatedAt: 0 }; }
+
+function normalizeState(saved) {
+  if (!saved || typeof saved !== "object") return emptyState();
+  const normalized = {
+    cards: saved.cards && typeof saved.cards === "object" ? saved.cards : {},
+    streak: saved.streak && typeof saved.streak === "object" ? saved.streak : {},
+    updatedAt: Number.isFinite(saved.updatedAt) ? saved.updatedAt : 0,
+  };
+  if (!normalized.updatedAt && (Object.keys(normalized.cards).length || normalized.streak.count)) normalized.updatedAt = Date.now();
+  return normalized;
 }
 
-function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function loadState() {
+  try { return normalizeState(JSON.parse(localStorage.getItem(STORAGE_KEY))); }
+  catch { return emptyState(); }
+}
+
+let syncChain = Promise.resolve();
+
+async function uploadState(snapshot) {
+  const response = await fetch("/api/progress", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: snapshot,
+    keepalive: true,
+  });
+  if (!response.ok) throw new Error(`progress save failed: ${response.status}`);
+}
+
+function queueSync() {
+  if (typeof fetch === "undefined") return;
+  const snapshot = JSON.stringify(state);
+  syncChain = syncChain.catch(() => {}).then(() => uploadState(snapshot));
+}
+
+function saveState() {
+  state.updatedAt = Date.now();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  queueSync();
+}
+
+async function hydrateState() {
+  try {
+    const response = await fetch("/api/progress", { headers: { Accept: "application/json" } });
+    if (!response.ok) return;
+    const remote = await response.json();
+    const remoteState = normalizeState(remote.state);
+    if (remote.exists && remoteState.updatedAt >= state.updatedAt) {
+      state = remoteState;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } else if (state.updatedAt) {
+      await uploadState(JSON.stringify(state));
+    }
+  } catch {
+    // Local storage remains the offline source until a later save or reload retries.
+  }
+}
 function dayKey(date = new Date()) { return date.toISOString().slice(0, 10); }
 
 function updateStreak() {
@@ -212,7 +264,7 @@ function updateStreak() {
   state.streak.last = today;
 }
 
-let state = typeof localStorage === "undefined" ? { cards: {}, streak: {} } : loadState();
+let state = typeof localStorage === "undefined" ? emptyState() : loadState();
 let session = [];
 let index = 0;
 let score = 0;
@@ -344,10 +396,10 @@ if (typeof document !== "undefined") {
     if (!answered) renderCard();
   }));
   element("reset-button").addEventListener("click", () => {
-    if (!confirm("Reset all saved practice progress on this device?")) return;
-    state = { cards: {}, streak: {} };
+    if (!confirm("Reset all saved practice progress on every device?")) return;
+    state = emptyState();
     saveState();
     startSession();
   });
-  startSession();
+  hydrateState().finally(startSession);
 }

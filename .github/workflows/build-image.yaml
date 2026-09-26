@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - "dist/**"
+      - "main.go"
+      - "go.mod"
+      - "go.sum"
       - "Dockerfile"
-      - "nginx.conf"
       - ".github/workflows/build-image.yaml"
   workflow_dispatch:
 
