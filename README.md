@@ -34,7 +34,8 @@ No build or package install is needed.
 python3 -m http.server 8080 --directory dist
 ```
 
-Open <http://localhost:8080>. Progress stays in the browser's local storage.
+Open <http://localhost:8080>. Without the production API, progress stays in the
+browser's local storage.
 
 ## Check
 
@@ -44,7 +45,8 @@ node --test tests/app.test.mjs
 
 ## Deployment
 
-`Dockerfile` serves the static files with nginx. Pushes to `main` publish
+`Dockerfile` builds a small Go server that serves the static files and persists
+authenticated progress through PostgreSQL. Pushes to `main` publish
 `ghcr.io/pamelia/verbose-bassoon` with timestamped commit tags. The Hetzner
 cluster deployment is reconciled by Flux from the companion
 `pamelia/effective-garbanzo` repository and is exposed at
