@@ -26,7 +26,7 @@ body {
     #f7f3e8;
 }
 
-button, input { font: inherit; }
+button, input, select { font: inherit; }
 button { cursor: pointer; }
 
 .topbar,
@@ -88,12 +88,21 @@ h2 { font-size: 1.55rem; line-height: 1.08; letter-spacing: -0.035em; }
 .progress-track { height: 9px; margin: 26px 0; overflow: hidden; background: #dedbd2; border-radius: 999px; }
 .progress-track span { display: block; width: 10%; height: 100%; background: var(--tomato); border-radius: inherit; transition: width 220ms ease; }
 
-.difficulty { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 18px; border: 0; }
+.session-controls { display: flex; gap: 16px; align-items: end; justify-content: space-between; margin-bottom: 18px; }
+.difficulty { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; border: 0; }
 .difficulty legend { float: none; width: 100%; margin-bottom: 8px; color: var(--muted); font-size: 0.86rem; font-weight: 750; }
 .difficulty label { position: relative; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); font-size: 0.9rem; font-weight: 750; }
 .difficulty label:has(input:checked) { color: white; background: var(--ink); border-color: var(--ink); }
 .difficulty input { position: absolute; opacity: 0; }
 .difficulty label:has(input:focus-visible) { outline: 3px solid rgb(244 197 66 / 55%); outline-offset: 2px; }
+.topic-picker { display: grid; flex: 0 0 auto; gap: 8px; color: var(--muted); font-size: 0.86rem; font-weight: 750; }
+.topic-picker select { min-height: 38px; padding: 7px 34px 7px 10px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; font-weight: 750; }
+.topic-picker select:focus-visible { outline: 3px solid rgb(244 197 66 / 55%); outline-offset: 2px; }
+.speaking-mode { display: flex; flex: 0 0 auto; gap: 9px; align-items: center; min-height: 58px; padding: 8px 12px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+.speaking-mode input { width: 20px; height: 20px; accent-color: var(--tomato); }
+.speaking-mode span { display: grid; gap: 1px; }
+.speaking-mode strong { font-size: 0.88rem; }
+.speaking-mode small { color: var(--muted); font-size: 0.72rem; }
 
 .card,
 .summary {
@@ -130,6 +139,11 @@ h2 { font-size: 1.55rem; line-height: 1.08; letter-spacing: -0.035em; }
 .feedback.wrong { background: #fde7e2; border-left-color: var(--tomato); }
 .feedback-title { margin-bottom: 4px; font-weight: 900; }
 .feedback p:not(.feedback-title) { margin-bottom: 15px; line-height: 1.5; }
+.speaking-prompt { margin-top: 22px; }
+.speaking-prompt p { color: var(--muted); }
+.self-grade { display: flex; gap: 10px; }
+.secondary { padding: 13px 19px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 9px; font-weight: 850; }
+.secondary:focus-visible { outline: 3px solid rgb(244 197 66 / 70%); outline-offset: 3px; }
 
 .summary { display: grid; min-height: 430px; align-content: center; text-align: center; }
 .summary .primary { justify-self: center; }
@@ -139,7 +153,7 @@ h2 { font-size: 1.55rem; line-height: 1.08; letter-spacing: -0.035em; }
 
 .side-note { margin-top: 170px; padding: 28px 24px; background: var(--sun); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 6px 6px 0 var(--ink); transform: rotate(1deg); }
 .side-note > p:not(.eyebrow) { line-height: 1.55; }
-.side-note dl { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 26px 0; }
+.side-note dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 26px 0; }
 .side-note dl div { padding-top: 14px; border-top: 2px solid rgb(25 35 59 / 30%); }
 .side-note dt { font-size: 1.8rem; font-weight: 900; }
 .side-note dd { margin: 2px 0 0; font-size: 0.8rem; line-height: 1.2; }
@@ -160,6 +174,9 @@ footer button { padding: 4px 0; color: inherit; background: transparent; border:
   .streak span:last-child { display: none; }
   .shell { gap: 24px; }
   .session-head { align-items: start; }
+  .session-controls { align-items: stretch; flex-direction: column; }
+  .topic-picker select { width: 100%; }
+  .speaking-mode { justify-content: center; }
   .answer-row { align-items: stretch; flex-direction: column; }
   .primary { min-height: 50px; }
   .card, .summary { min-height: 450px; padding: 24px 20px; box-shadow: 5px 5px 0 var(--ink); }

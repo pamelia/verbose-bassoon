@@ -3,7 +3,7 @@ const SESSION_SIZE = 10;
 const STORAGE_KEY = "dale-progress-v1";
 const INTERVALS = [1, 3, 7, 14, 30];
 
-export const cards = [
+const starterCards = [
   { id: "hello", kind: "Greeting", prompt: "Hello!", translation: "Say it in Spanish.", answers: ["hola"], answer: "¡Hola!", note: "A friendly greeting at any time of day." },
   { id: "good-morning", kind: "Greeting", prompt: "Good morning.", translation: "Say it in Spanish.", answers: ["buenos dias"], answer: "Buenos días.", note: "Use the plural: buenos días." },
   { id: "how-are-you", kind: "Conversation", prompt: "How are you?", translation: "Ask one person informally.", answers: ["como estas"], answer: "¿Cómo estás?", note: "Tú uses estás, with an accent." },
@@ -30,6 +30,146 @@ export const cards = [
   { id: "vivir-nosotros", kind: "Regular -ir verb", prompt: "Nosotros ___ aquí.", translation: "We live here.", verb: "vivir", person: "1st person plural", clue: "viv- + -imos", answers: ["vivimos"], answer: "vivimos", note: "Regular -ir verbs use -imos with nosotros." },
   { id: "escribir-vosotros", kind: "Regular -ir verb", prompt: "Vosotros ___ correos.", translation: "You all write emails.", verb: "escribir", person: "2nd person plural", clue: "escrib- + -ís", answers: ["escribis"], answer: "escribís", note: "In Spain, regular -ir verbs use -ís with vosotros." },
   { id: "abrir-ellas", kind: "Regular -ir verb", prompt: "Ellas ___ las ventanas.", translation: "They open the windows.", verb: "abrir", person: "3rd person plural", clue: "abr- + -en", answers: ["abren"], answer: "abren", note: "Regular -ir verbs use -en with ellos or ellas." },
+];
+
+const people = [
+  { slug: "yo", subject: "Yo", label: "1st person singular", english: "I" },
+  { slug: "tu", subject: "Tú", label: "2nd person singular", english: "You" },
+  { slug: "ella", subject: "Ella", label: "3rd person singular", english: "She" },
+  { slug: "nosotros", subject: "Nosotros", label: "1st person plural", english: "We" },
+  { slug: "vosotros", subject: "Vosotros", label: "2nd person plural", english: "You all" },
+  { slug: "ellos", subject: "Ellos", label: "3rd person plural", english: "They" },
+];
+
+const numberCards = [
+  [1, "uno", ["uno", "una", "un"]], [2, "dos"], [3, "tres"], [4, "cuatro"], [5, "cinco"],
+  [6, "seis"], [7, "siete"], [8, "ocho"], [9, "nueve"], [10, "diez"], [11, "once"],
+  [12, "doce"], [13, "trece"], [14, "catorce"], [15, "quince"], [16, "dieciséis"],
+  [17, "diecisiete"], [18, "dieciocho"], [19, "diecinueve"], [20, "veinte"],
+  [21, "veintiuno", ["veintiuno", "veintiuna", "veintiun"]], [22, "veintidós"],
+  [23, "veintitrés"], [24, "veinticuatro"], [25, "veinticinco"], [26, "veintiséis"],
+  [27, "veintisiete"], [28, "veintiocho"], [29, "veintinueve"], [30, "treinta"],
+  [31, "treinta y uno", ["treinta y uno", "treinta y una", "treinta y un"]], [32, "treinta y dos"],
+  [40, "cuarenta"], [50, "cincuenta"], [60, "sesenta"], [70, "setenta"], [80, "ochenta"],
+  [90, "noventa"], [100, "cien"], [101, "ciento uno"], [182, "ciento ochenta y dos"],
+  [200, "doscientos", ["doscientos", "doscientas"]], [300, "trescientos", ["trescientos", "trescientas"]],
+  [400, "cuatrocientos", ["cuatrocientos", "cuatrocientas"]], [500, "quinientos", ["quinientos", "quinientas"]],
+  [600, "seiscientos", ["seiscientos", "seiscientas"]], [700, "setecientos", ["setecientos", "setecientas"]],
+  [800, "ochocientos", ["ochocientos", "ochocientas"]], [900, "novecientos", ["novecientos", "novecientas"]],
+  [1000, "mil"], [1001, "mil uno"], [1010, "mil diez"], [1100, "mil cien"],
+  [10000, "diez mil"], [100000, "cien mil"], [1000000, "un millón"],
+].map(([number, answer, answers = [answer]]) => ({
+  id: `number-${number}`,
+  topic: "numbers",
+  kind: "Numbers",
+  prompt: `${number.toLocaleString("en-US")} → ___`,
+  translation: "Write the number in Spanish.",
+  answers,
+  answer,
+  note: number >= 1000 ? "Mil is not plural in compound numbers." : "Say it aloud once more before moving on.",
+}));
+
+const nationalities = [
+  ["estados-unidos", "Estados Unidos", "estadounidense", "estadounidense"],
+  ["alemania", "Alemania", "alemán", "alemana"], ["inglaterra", "Inglaterra", "inglés", "inglesa"],
+  ["argentina", "Argentina", "argentino", "argentina"], ["japon", "Japón", "japonés", "japonesa"],
+  ["belgica", "Bélgica", "belga", "belga"], ["italia", "Italia", "italiano", "italiana"],
+  ["noruega", "Noruega", "noruego", "noruega"], ["espana", "España", "español", "española"],
+  ["portugal", "Portugal", "portugués", "portuguesa"], ["francia", "Francia", "francés", "francesa"],
+  ["uganda", "Uganda", "ugandés", "ugandesa"],
+].flatMap(([slug, country, masculine, feminine]) => [
+  { id: `nationality-${slug}-m`, topic: "people", kind: "Nationalities", prompt: `Él es de ${country}. Es ___.`, translation: `He is from ${country}.`, person: "masculine singular", answers: [masculine], answer: masculine, note: "Nationality words agree with the person." },
+  { id: `nationality-${slug}-f`, topic: "people", kind: "Nationalities", prompt: `Ella es de ${country}. Es ___.`, translation: `She is from ${country}.`, person: "feminine singular", answers: [feminine], answer: feminine, note: masculine === feminine ? "This nationality has the same form for men and women." : "Nationality words agree with the person." },
+]);
+
+const professions = [
+  ["business-owner", "empresario", "empresaria"], ["photographer", "fotógrafo", "fotógrafa"],
+  ["dentist", "dentista", "dentista"], ["doctor", "médico", "médica"],
+  ["journalist", "periodista", "periodista"], ["engineer", "ingeniero", "ingeniera"],
+  ["teacher", "profesor", "profesora"], ["lawyer", "abogado", "abogada"],
+  ["waiter", "camarero", "camarera"],
+].flatMap(([slug, masculine, feminine]) => [
+  { id: `profession-${slug}-m`, topic: "people", kind: "Professions", prompt: `Él es ___.`, translation: "Complete with the Spanish profession.", person: "masculine singular", answers: [masculine], answer: masculine, note: "After ser, professions normally do not need un or una." },
+  { id: `profession-${slug}-f`, topic: "people", kind: "Professions", prompt: `Ella es ___.`, translation: "Complete with the Spanish profession.", person: "feminine singular", answers: [feminine], answer: feminine, note: masculine === feminine ? "This profession has the same form for men and women." : "The ending agrees with the person." },
+]);
+
+const regularVerbs = [
+  ["cocinar", "cocin", ["cocino", "cocinas", "cocina", "cocinamos", "cocináis", "cocinan"], "en casa", "cook", "at home"],
+  ["nadar", "nad", ["nado", "nadas", "nada", "nadamos", "nadáis", "nadan"], "los sábados", "swim", "on Saturdays"],
+  ["limpiar", "limpi", ["limpio", "limpias", "limpia", "limpiamos", "limpiáis", "limpian"], "la cocina", "clean", "the kitchen"],
+  ["visitar", "visit", ["visito", "visitas", "visita", "visitamos", "visitáis", "visitan"], "museos", "visit", "museums"],
+  ["cantar", "cant", ["canto", "cantas", "canta", "cantamos", "cantáis", "cantan"], "en la ducha", "sing", "in the shower"],
+  ["correr", "corr", ["corro", "corres", "corre", "corremos", "corréis", "corren"], "en el parque", "run", "in the park"],
+].flatMap(([verb, stem, forms, tail, englishVerb, englishTail]) => people.map((person, position) => ({
+  id: `${verb}-${person.slug}-lesson`,
+  topic: "verbs",
+  kind: `Regular -${verb.slice(-2)} verb`,
+  prompt: `${person.subject} ___ ${tail}.`,
+  translation: `${person.english} ${englishVerb}${position === 2 ? "s" : ""} ${englishTail}.`,
+  verb,
+  person: person.label,
+  clue: `${stem}- + ${forms[position].slice(stem.length)}`,
+  answers: [forms[position]],
+  answer: forms[position],
+  note: `This is the present tense of ${verb}.`,
+})));
+
+const irregularVerbs = [
+  ["ser", ["soy", "eres", "es", "somos", "sois", "son"], "de Suecia", "from Sweden"],
+  ["estar", ["estoy", "estás", "está", "estamos", "estáis", "están"], "en casa", "at home"],
+  ["tener", ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"], "mucho trabajo", "a lot of work"],
+  ["querer", ["quiero", "quieres", "quiere", "queremos", "queréis", "quieren"], "comer ahora", "to eat now"],
+].flatMap(([verb, forms, tail, englishTail]) => people.map((person, position) => ({
+  id: `${verb}-${person.slug}`,
+  topic: "verbs",
+  kind: "Useful irregular verb",
+  prompt: `${person.subject} ___ ${tail}.`,
+  translation: `Use ${verb} with ${person.subject.toLowerCase()}: ${englishTail}.`,
+  verb,
+  person: person.label,
+  answers: [forms[position]],
+  answer: forms[position],
+  note: `${verb} is irregular, so learn its present-tense forms as a pattern.`,
+})));
+
+const lessonPhrases = [
+  { id: "what-is-up", kind: "Conversation", prompt: "How’s it going?", translation: "Use the short greeting from class.", answers: ["que tal"], answer: "¿Qué tal?", note: "A common, informal way to ask how things are." },
+  { id: "what-is-your-name", kind: "Introductions", prompt: "What is your name?", translation: "Ask one person informally.", answers: ["como te llamas"], answer: "¿Cómo te llamas?", note: "The reply begins Me llamo…" },
+  { id: "my-name-is", kind: "Introductions", prompt: "My name is Ana.", translation: "Introduce yourself.", answers: ["me llamo ana"], answer: "Me llamo Ana.", note: "Literally: I call myself Ana." },
+  { id: "where-from", kind: "Introductions", prompt: "Where are you from?", translation: "Ask one person informally.", answers: ["de donde eres"], answer: "¿De dónde eres?", note: "Use ser for origin." },
+  { id: "from-sweden", kind: "Introductions", prompt: "I am from Sweden.", translation: "Reply in Spanish.", answers: ["soy de suecia"], answer: "Soy de Suecia.", note: "Use ser + de + place." },
+  { id: "what-work", kind: "Introductions", prompt: "What do you do for work?", translation: "Use the trabajar question from class.", answers: ["en que trabajas"], answer: "¿En qué trabajas?", note: "You can also ask ¿A qué te dedicas?" },
+  { id: "what-do-you-do", kind: "Introductions", prompt: "What do you do?", translation: "Use the dedicarse question from class.", answers: ["a que te dedicas"], answer: "¿A qué te dedicas?", note: "A natural way to ask about someone’s work." },
+  { id: "age-question", kind: "Introductions", prompt: "How old are you?", translation: "Ask one person informally.", answers: ["cuantos anos tienes"], answer: "¿Cuántos años tienes?", note: "Spanish uses tener, to have, for age." },
+  { id: "age-answer", kind: "Introductions", prompt: "I am forty-two years old.", translation: "Reply in Spanish.", answers: ["tengo cuarenta y dos anos"], answer: "Tengo cuarenta y dos años.", note: "Literally: I have forty-two years." },
+  { id: "children-question", kind: "Introductions", prompt: "Do you have children?", translation: "Ask one person informally.", answers: ["tienes hijos"], answer: "¿Tienes hijos?", note: "Tienes is the tú form of tener." },
+  { id: "phone-question", kind: "Introductions", prompt: "Do you have a mobile phone?", translation: "Ask one person informally.", answers: ["tienes movil"], answer: "¿Tienes móvil?", note: "Móvil has an accent on the first syllable." },
+  { id: "email-question", kind: "Introductions", prompt: "Do you have an email address?", translation: "Ask one person informally.", answers: ["tienes correo electronico"], answer: "¿Tienes correo electrónico?", note: "Correo electrónico means email address." },
+  { id: "free-time", kind: "Likes & plans", prompt: "What do you like doing in your free time?", translation: "Ask one person informally.", answers: ["que te gusta hacer en tu tiempo libre"], answer: "¿Qué te gusta hacer en tu tiempo libre?", note: "An activity after gustar stays in the infinitive." },
+  { id: "like-chocolate", kind: "Likes & plans", prompt: "Nos ___ el chocolate.", translation: "We like chocolate.", verb: "gustar", answers: ["gusta"], answer: "gusta", note: "Chocolate is singular, so use gusta." },
+  { id: "like-cats", kind: "Likes & plans", prompt: "Nos ___ los gatos.", translation: "We like cats.", verb: "gustar", answers: ["gustan"], answer: "gustan", note: "Gatos is plural, so use gustan." },
+  { id: "me-too", kind: "Agreeing", prompt: "Me gusta cocinar. — Me too.", translation: "Agree in Spanish.", answers: ["a mi tambien", "yo tambien"], answer: "A mí también.", note: "También agrees with an affirmative statement." },
+  { id: "me-neither", kind: "Agreeing", prompt: "No me gusta correr. — Me neither.", translation: "Agree in Spanish.", answers: ["a mi tampoco", "yo tampoco"], answer: "A mí tampoco.", note: "Tampoco agrees with a negative statement." },
+  { id: "not-me", kind: "Agreeing", prompt: "Me gusta correr. — I don’t.", translation: "Disagree in Spanish.", answers: ["a mi no", "yo no"], answer: "A mí no.", note: "Use no to disagree with an affirmative statement." },
+  { id: "but-i-do", kind: "Agreeing", prompt: "No me gusta correr. — I do.", translation: "Disagree in Spanish.", answers: ["a mi si", "yo si"], answer: "A mí sí.", note: "Use sí to disagree with a negative statement." },
+  { id: "want-dinner", kind: "Likes & plans", prompt: "Do you want to go out for dinner?", translation: "Ask one person informally.", answers: ["quieres salir a cenar"], answer: "¿Quieres salir a cenar?", note: "Querer is followed by an infinitive." },
+  { id: "want-beer", kind: "Likes & plans", prompt: "I want a beer.", translation: "Order in Spanish.", answers: ["quiero una cerveza"], answer: "Quiero una cerveza.", note: "Quiero is the yo form of querer." },
+];
+
+function starterTopic(card) {
+  if (card.kind.startsWith("Regular")) return "verbs";
+  if (card.kind === "Likes") return "plans";
+  return "conversation";
+}
+
+export const cards = [
+  ...starterCards.map((card) => ({ ...card, topic: starterTopic(card) })),
+  ...numberCards,
+  ...nationalities,
+  ...professions,
+  ...regularVerbs,
+  ...irregularVerbs,
+  ...lessonPhrases.map((card) => ({ ...card, topic: card.kind === "Introductions" ? "conversation" : "plans" })),
 ];
 
 export function normalize(value) {
@@ -79,6 +219,7 @@ let score = 0;
 let answered = false;
 const element = (id) => document.getElementById(id);
 const difficulty = () => document.querySelector('input[name="difficulty"]:checked').value;
+const speaking = () => element("speaking-mode").checked;
 
 function renderStats() {
   const now = Date.now();
@@ -86,6 +227,7 @@ function renderStats() {
   element("due-count").textContent = cards.filter((card) => (state.cards[card.id]?.due ?? 0) <= now).length;
   element("learned-count").textContent = records.filter((record) => record.level >= 2).length;
   element("streak-count").textContent = state.streak.count || 0;
+  element("deck-count").textContent = cards.length;
 }
 
 function renderCard() {
@@ -102,11 +244,14 @@ function renderCard() {
   element("card-clue").textContent = level === "guided" ? (card.clue || "Say the whole phrase from memory.") : "";
   element("answer").value = "";
   element("answer").disabled = false;
-  element("answer-form").hidden = false;
+  element("answer-form").hidden = speaking();
+  element("speaking-prompt").hidden = !speaking();
   element("feedback").hidden = true;
   element("feedback").classList.remove("wrong");
-  element("reveal-button").hidden = false;
-  element("answer").focus({ preventScroll: true });
+  element("self-grade").hidden = true;
+  element("next-button").hidden = false;
+  element("reveal-button").hidden = speaking();
+  (speaking() ? element("show-answer-button") : element("answer")).focus({ preventScroll: true });
 }
 
 function showFeedback(remembered) {
@@ -126,12 +271,33 @@ function showFeedback(remembered) {
   element("next-button").focus();
 }
 
+function revealSpokenAnswer() {
+  if (answered) return;
+  answered = true;
+  const card = session[index];
+  element("feedback").hidden = false;
+  element("feedback-title").textContent = `Answer: ${card.answer}`;
+  element("feedback-copy").textContent = card.note;
+  element("self-grade").hidden = false;
+  element("next-button").hidden = true;
+  element("remembered-button").focus();
+}
+
+function gradeSpokenAnswer(remembered) {
+  const card = session[index];
+  state.cards = schedule(state.cards, card.id, remembered);
+  if (remembered) score += 1;
+  saveState();
+  renderStats();
+  nextCard();
+}
+
 function finishSession() {
   updateStreak();
   saveState();
   renderStats();
   element("practice-card").hidden = true;
-  document.querySelector(".difficulty").hidden = true;
+  document.querySelector(".session-controls").hidden = true;
   element("summary").hidden = false;
   element("score").textContent = score;
   element("summary-copy").textContent = score >= 8 ? "Strong recall. Give it some space before the next round." : "Good work. The missed prompts are now scheduled to return sooner.";
@@ -145,11 +311,13 @@ function nextCard() {
 }
 
 function startSession() {
-  session = chooseSession(cards, state.cards);
+  const topic = element("topic-filter").value;
+  const pool = topic === "all" ? cards : cards.filter((card) => card.topic === topic);
+  session = chooseSession(pool, state.cards);
   index = 0;
   score = 0;
   element("practice-card").hidden = false;
-  document.querySelector(".difficulty").hidden = false;
+  document.querySelector(".session-controls").hidden = false;
   element("summary").hidden = true;
   renderStats();
   renderCard();
@@ -163,8 +331,15 @@ if (typeof document !== "undefined") {
     showFeedback(isCorrect(session[index], attempt));
   });
   element("reveal-button").addEventListener("click", () => showFeedback(false));
+  element("show-answer-button").addEventListener("click", revealSpokenAnswer);
+  element("missed-button").addEventListener("click", () => gradeSpokenAnswer(false));
+  element("remembered-button").addEventListener("click", () => gradeSpokenAnswer(true));
   element("next-button").addEventListener("click", nextCard);
   element("restart-button").addEventListener("click", startSession);
+  element("topic-filter").addEventListener("change", startSession);
+  element("speaking-mode").addEventListener("change", () => {
+    if (!answered) renderCard();
+  });
   document.querySelectorAll('input[name="difficulty"]').forEach((input) => input.addEventListener("change", () => {
     if (!answered) renderCard();
   }));

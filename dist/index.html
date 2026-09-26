@@ -25,12 +25,27 @@
         </div>
         <div class="progress-track" aria-label="Session progress"><span id="progress-bar"></span></div>
 
-        <fieldset class="difficulty">
-          <legend>How much help?</legend>
-          <label><input type="radio" name="difficulty" value="guided" /> With clues</label>
-          <label><input type="radio" name="difficulty" value="standard" checked /> Normal</label>
-          <label><input type="radio" name="difficulty" value="challenge" /> No clues</label>
-        </fieldset>
+        <div class="session-controls">
+          <fieldset class="difficulty">
+            <legend>How much help?</legend>
+            <label><input type="radio" name="difficulty" value="guided" /> With clues</label>
+            <label><input type="radio" name="difficulty" value="standard" checked /> Normal</label>
+            <label><input type="radio" name="difficulty" value="challenge" /> No clues</label>
+          </fieldset>
+          <label class="topic-picker" for="topic-filter">Focus this round
+            <select id="topic-filter">
+              <option value="all">Everything</option>
+              <option value="conversation">Conversation</option>
+              <option value="people">People &amp; professions</option>
+              <option value="plans">Likes &amp; plans</option>
+              <option value="verbs">Verb practice</option>
+              <option value="numbers">Numbers</option>
+            </select>
+          </label>
+          <label class="speaking-mode"><input id="speaking-mode" type="checkbox" />
+            <span><strong>Say it aloud</strong><small>Great for two people</small></span>
+          </label>
+        </div>
 
         <article class="card" id="practice-card">
           <div class="card-meta"><span id="card-kind">Regular verb</span><span id="card-person"></span></div>
@@ -45,9 +60,17 @@
               <button class="primary" type="submit">Check</button>
             </div>
           </form>
+          <div class="speaking-prompt" id="speaking-prompt" hidden>
+            <p>Say your answer to your partner, then reveal it.</p>
+            <button class="primary" id="show-answer-button" type="button">Show answer</button>
+          </div>
           <div class="feedback" id="feedback" role="status" aria-live="polite" hidden>
             <p class="feedback-title" id="feedback-title"></p><p id="feedback-copy"></p>
             <button class="primary" id="next-button" type="button">Next</button>
+            <div class="self-grade" id="self-grade" hidden>
+              <button class="secondary" id="missed-button" type="button">Not yet</button>
+              <button class="primary" id="remembered-button" type="button">I got it</button>
+            </div>
           </div>
           <button class="reveal" id="reveal-button" type="button">I don’t know — show me</button>
         </article>
@@ -64,6 +87,7 @@
         <p class="eyebrow">Why this works</p><h2 id="why-title">A tiny workout for recall.</h2>
         <p>Type the answer before you see it. Missed prompts return sooner; remembered prompts get more space.</p>
         <dl>
+          <div><dt id="deck-count">0</dt><dd>prompts in the deck</dd></div>
           <div><dt id="due-count">0</dt><dd>ready to practise</dd></div>
           <div><dt id="learned-count">0</dt><dd>prompts remembered</dd></div>
         </dl>

@@ -2,6 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { cards, chooseSession, isCorrect, normalize, schedule } from "../dist/app.js";
 
+test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
+  assert.equal(cards.length, 205);
+  assert.equal(new Set(cards.map(({ id }) => id)).size, cards.length);
+  assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs"]));
+});
+
 test("answer matching ignores punctuation, case, and missing accents", () => {
   assert.equal(normalize(" ¿CÓMO estás? "), "como estas");
   assert.equal(isCorrect(cards.find(({ id }) => id === "how-are-you"), "como estas"), true);
