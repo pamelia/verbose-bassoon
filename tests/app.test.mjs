@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { cards, chooseSession, isCorrect, normalize, schedule } from "../dist/app.js";
+import { cards, chooseSession, isCorrect, normalize, resetState, schedule } from "../dist/app.js";
 
 test("browser assets cannot stay stale after a deployment", () => {
   const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
@@ -38,6 +38,10 @@ test("remembered cards are spaced farther out and missed cards return soon", () 
   assert.equal(first["comer-yo"].due, now + 86_400_000);
   assert.equal(second["comer-yo"].due, now + 3 * 86_400_000);
   assert.equal(missed["comer-yo"].due, now + 10 * 60_000);
+});
+
+test("starting over creates a newer empty state for cross-device sync", () => {
+  assert.deepEqual(resetState(1234), { cards: {}, streak: {}, updatedAt: 1234 });
 });
 
 test("session selection returns ten prompts with overdue work first", () => {
