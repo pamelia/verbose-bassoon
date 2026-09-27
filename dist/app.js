@@ -8,9 +8,13 @@ export let cards = [];
 export function flattenContent(content) {
   if (!content || content.version !== 1 || !Array.isArray(content.packs)) throw new Error("invalid content response");
   return content.packs.flatMap((pack) => {
-    if (!pack || !pack.topic || !Array.isArray(pack.cards)) throw new Error("invalid content pack");
-    return pack.cards.map((card) => ({ ...card, topic: pack.topic, pack: pack.id }));
+    if (!pack || !pack.topic || !Number.isInteger(pack.unit) || !Array.isArray(pack.cards)) throw new Error("invalid content pack");
+    return pack.cards.map((card) => ({ ...card, topic: pack.topic, pack: pack.id, unit: pack.unit }));
   });
+}
+
+export function cardsForUnit(allCards, unit) {
+  return allCards.filter((card) => card.unit <= unit);
 }
 
 async function hydrateContent() {
@@ -44,13 +48,14 @@ export function schedule(progress, id, remembered, now = Date.now()) {
   return { ...progress, [id]: { level, attempts: previous.attempts + 1, due: now + (remembered ? INTERVALS[level] * DAY : 10 * 60_000) } };
 }
 
-function emptyState() { return { cards: {}, streak: {}, updatedAt: 0 }; }
+function emptyState() { return { cards: {}, streak: {}, courseUnit: 2, updatedAt: 0 }; }
 
 function normalizeState(saved) {
   if (!saved || typeof saved !== "object") return emptyState();
   const normalized = {
     cards: saved.cards && typeof saved.cards === "object" ? saved.cards : {},
     streak: saved.streak && typeof saved.streak === "object" ? saved.streak : {},
+    courseUnit: Number.isInteger(saved.courseUnit) && saved.courseUnit >= 2 && saved.courseUnit <= 9 ? saved.courseUnit : 2,
     updatedAt: Number.isFinite(saved.updatedAt) ? saved.updatedAt : 0,
   };
   if (!normalized.updatedAt && (Object.keys(normalized.cards).length || normalized.streak.count)) normalized.updatedAt = Date.now();
@@ -155,11 +160,12 @@ const speaking = () => element("speaking-mode").checked;
 
 function renderStats() {
   const now = Date.now();
-  const records = Object.values(state.cards);
-  element("due-count").textContent = cards.filter((card) => (state.cards[card.id]?.due ?? 0) <= now).length;
+  const unlocked = cardsForUnit(cards, state.courseUnit);
+  const records = unlocked.map((card) => state.cards[card.id]).filter(Boolean);
+  element("due-count").textContent = unlocked.filter((card) => (state.cards[card.id]?.due ?? 0) <= now).length;
   element("learned-count").textContent = records.filter((record) => record.level >= 2).length;
   element("streak-count").textContent = state.streak.count || 0;
-  element("deck-count").textContent = cards.length;
+  element("deck-count").textContent = unlocked.length;
 }
 
 function renderCard() {
@@ -243,8 +249,12 @@ function nextCard() {
 }
 
 function startSession() {
+  element("course-unit").value = String(state.courseUnit);
+  const unlocked = cardsForUnit(cards, state.courseUnit);
+  for (const option of element("topic-filter").options) option.disabled = option.value !== "all" && !unlocked.some((card) => card.topic === option.value);
+  if (element("topic-filter").selectedOptions[0].disabled) element("topic-filter").value = "all";
   const topic = element("topic-filter").value;
-  const pool = topic === "all" ? cards : cards.filter((card) => card.topic === topic);
+  const pool = topic === "all" ? unlocked : unlocked.filter((card) => card.topic === topic);
   session = chooseSession(pool, state.cards);
   index = 0;
   score = 0;
@@ -281,6 +291,11 @@ if (typeof document !== "undefined") {
   element("next-button").addEventListener("click", nextCard);
   element("restart-button").addEventListener("click", startSession);
   element("topic-filter").addEventListener("change", startSession);
+  element("course-unit").addEventListener("change", () => {
+    state.courseUnit = Number(element("course-unit").value);
+    saveState();
+    startSession();
+  });
   element("speaking-mode").addEventListener("change", () => {
     if (!answered) renderCard();
   });

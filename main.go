@@ -34,6 +34,7 @@ type contentPack struct {
 	Stage         string   `json:"stage"`
 	Topic         string   `json:"topic"`
 	Order         int      `json:"order"`
+	Unit          int      `json:"unit"`
 	Prerequisites []string `json:"prerequisites"`
 	Source        string   `json:"source"`
 	Cards         []card   `json:"cards"`
@@ -64,9 +65,10 @@ type streak struct {
 }
 
 type studyState struct {
-	Cards     map[string]cardProgress `json:"cards"`
-	Streak    streak                  `json:"streak"`
-	UpdatedAt int64                   `json:"updatedAt"`
+	Cards      map[string]cardProgress `json:"cards"`
+	Streak     streak                  `json:"streak"`
+	CourseUnit int                     `json:"courseUnit,omitempty"`
+	UpdatedAt  int64                   `json:"updatedAt"`
 }
 
 func main() {
@@ -174,9 +176,9 @@ func loadContent(fsys fs.FS) (contentResponse, error) {
 func validateContent(content contentResponse) error {
 	packIDs := make(map[string]bool, len(content.Packs))
 	cardIDs := make(map[string]bool)
-	validTopics := map[string]bool{"conversation": true, "plans": true, "numbers": true, "people": true, "verbs": true}
+	validTopics := map[string]bool{"conversation": true, "plans": true, "numbers": true, "people": true, "verbs": true, "places": true, "shopping": true, "routines": true, "food": true, "abilities": true}
 	for _, pack := range content.Packs {
-		if pack.ID == "" || pack.Title == "" || pack.Description == "" || pack.Stage == "" || !validTopics[pack.Topic] || pack.Order < 1 || pack.Source == "" || len(pack.Cards) == 0 || packIDs[pack.ID] {
+		if pack.ID == "" || pack.Title == "" || pack.Description == "" || pack.Stage == "" || !validTopics[pack.Topic] || pack.Order < 1 || pack.Unit < 0 || pack.Unit > 9 || pack.Source == "" || len(pack.Cards) == 0 || packIDs[pack.ID] {
 			return errors.New("invalid content pack: " + pack.ID)
 		}
 		packIDs[pack.ID] = true
@@ -312,7 +314,7 @@ func validateState(state studyState) error {
 			return errors.New("invalid card progress")
 		}
 	}
-	if state.Streak.Count < 0 || state.Streak.Count > 100000 || len(state.Streak.Last) > 10 || state.UpdatedAt < 0 {
+	if state.Streak.Count < 0 || state.Streak.Count > 100000 || len(state.Streak.Last) > 10 || (state.CourseUnit != 0 && (state.CourseUnit < 2 || state.CourseUnit > 9)) || state.UpdatedAt < 0 {
 		return errors.New("invalid study progress")
 	}
 	return nil
