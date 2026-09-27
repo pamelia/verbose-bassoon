@@ -59,7 +59,6 @@ the complete library from `GET /api/content`.
 
 `Dockerfile` builds a small Go server that serves the static files and persists
 authenticated progress through PostgreSQL. Pushes to `main` publish
-`ghcr.io/pamelia/verbose-bassoon` with timestamped commit tags. The Hetzner
-cluster deployment is reconciled by Flux from the companion
-`pamelia/effective-garbanzo` repository and is exposed at
-<https://dale.pamelia.se>.
+`ghcr.io/pamelia/verbose-bassoon` with timestamped commit tags. The production
+manifests live in `k8s/` and are reconciled by Flux in the Hetzner workload
+cluster. The app is exposed at <https://dale.pamelia.se>.
