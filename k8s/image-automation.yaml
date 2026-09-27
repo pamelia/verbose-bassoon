@@ -1,0 +1,53 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: dale
+  namespace: flux-system
+spec:
+  image: ghcr.io/pamelia/verbose-bassoon
+  interval: 1m
+---
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: dale
+  namespace: flux-system
+spec:
+  filterTags:
+    pattern: '^(?P<ts>\d+)-[a-f0-9]{7}$'
+    extract: '$ts'
+  imageRepositoryRef:
+    name: dale
+  policy:
+    numerical:
+      order: asc
+---
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: dale-images
+  namespace: flux-system
+spec:
+  suspend: true
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcd@pamelia-asset.se
+        name: fluxcd
+      messageTemplate: |
+        chore: update image
+
+        {{range .Changed.Changes}}{{.OldValue}} -> {{.NewValue}}
+        {{end}}
+    push:
+      branch: main
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: dale
+  update:
+    path: ./k8s
+    strategy: Setters

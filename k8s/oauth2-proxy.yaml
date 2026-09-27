@@ -1,0 +1,150 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oauth2-proxy-alpha-config
+  namespace: dale
+data:
+  alpha-config.yaml: |
+    injectRequestHeaders:
+    - name: X-Forwarded-Groups
+      values:
+      - claimSource:
+          claim: groups
+    - name: X-Forwarded-User
+      values:
+      - claimSource:
+          claim: sub
+    - name: X-Forwarded-Email
+      values:
+      - claimSource:
+          claim: email
+    - name: X-Forwarded-Name
+      values:
+      - claimSource:
+          claim: name
+    providers:
+    - id: google
+      provider: oidc
+      name: Google
+      clientID: ${OAUTH2_PROXY_CLIENT_ID}
+      clientSecret: ${OAUTH2_PROXY_CLIENT_SECRET}
+      scope: openid email profile
+      code_challenge_method: S256
+      oidcConfig:
+        issuerURL: https://accounts.google.com
+        # v7.15.4 otherwise replaces its email field with sub; identity is injected from the explicit sub claim above.
+        userIDClaim: email
+        emailClaim: email
+        insecureSkipNonce: false
+      additionalClaims:
+      - name
+      - sub
+      loginURLParameters:
+      - name: approval_prompt
+        default:
+        - auto
+    server:
+      bindAddress: 0.0.0.0:4180
+    upstreamConfig:
+      upstreams:
+      - id: dale
+        path: /
+        uri: http://spanish-study.dale.svc.cluster.local:80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth2-proxy
+  namespace: dale
+  labels:
+    app: oauth2-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oauth2-proxy
+  template:
+    metadata:
+      labels:
+        app: oauth2-proxy
+    spec:
+      containers:
+      - name: oauth2-proxy
+        image: quay.io/oauth2-proxy/oauth2-proxy:v7.15.4
+        args:
+        - --alpha-config=/etc/oauth2-proxy/alpha-config.yaml
+        - --email-domain=*
+        - --redirect-url=https://dale.pamelia.se/oauth2/callback
+        - --custom-sign-in-logo=-
+        - --banner=<span role="heading" aria-level="1" class="is-size-3 has-text-dark">¡Dale!</span><br>Sign in with any Google account to save your Spanish practice progress across devices.
+        - --footer=Your Google account is used only to identify your saved progress.
+        - --cookie-name=__Host-dale
+        - --cookie-path=/
+        - --cookie-secure=true
+        - --cookie-httponly=true
+        - --cookie-samesite=lax
+        - --cookie-expire=168h
+        - --cookie-csrf-per-request=true
+        - --cookie-csrf-expire=5m
+        - --session-cookie-minimal=true
+        - --reverse-proxy=true
+        - --trusted-proxy-ip=10.244.0.0/16
+        - --silence-ping-logging=true
+        env:
+        - name: OAUTH2_PROXY_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: google-oauth
+              key: client-id
+        - name: OAUTH2_PROXY_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: google-oauth
+              key: client-secret
+        - name: OAUTH2_PROXY_COOKIE_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: google-oauth
+              key: cookie-secret
+        ports:
+        - name: http
+          containerPort: 4180
+        volumeMounts:
+        - name: alpha-config
+          mountPath: /etc/oauth2-proxy
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: http
+          initialDelaySeconds: 3
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: 10m
+            memory: 16Mi
+          limits:
+            memory: 64Mi
+      volumes:
+      - name: alpha-config
+        configMap:
+          name: oauth2-proxy-alpha-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: oauth2-proxy
+  namespace: dale
+spec:
+  selector:
+    app: oauth2-proxy
+  ports:
+  - name: http
+    port: 4180
+    targetPort: http

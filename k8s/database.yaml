@@ -1,0 +1,47 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: dale-postgres
+  namespace: dale
+spec:
+  interval: 30m
+  dependsOn:
+  - name: cloudnative-pg
+    namespace: flux-system
+  chart:
+    spec:
+      chart: cluster
+      version: 0.8.1
+      sourceRef:
+        kind: HelmRepository
+        name: cloudnative-pg
+        namespace: flux-system
+      interval: 1h
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    fullnameOverride: dale-postgres
+    type: postgresql
+    version:
+      postgresql: "18"
+    mode: standalone
+    cluster:
+      instances: 1
+      enablePDB: false
+      enableSuperuserAccess: false
+      storage:
+        size: 10Gi
+        storageClass: hcloud-volumes
+      resources:
+        requests:
+          cpu: 50m
+          memory: 128Mi
+        limits:
+          memory: 512Mi
+      initdb:
+        database: dale
+        owner: dale
