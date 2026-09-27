@@ -18,6 +18,11 @@ test("browser assets cannot stay stale after a deployment", () => {
   assert.match(server, /Cache-Control", "no-store"/);
 });
 
+test("authenticated learners can log out through the proxy", () => {
+  const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
+  assert.match(html, /href="\/oauth2\/sign_out\?rd=%2F">Log out<\/a>/);
+});
+
 test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
   assert.equal(cards.length, 205);
   assert.equal(new Set(cards.map(({ id }) => id)).size, cards.length);
