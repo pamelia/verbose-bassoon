@@ -1,0 +1,324 @@
+{
+  "id": "a1-irregular-verbs",
+  "title": "Useful irregular verbs",
+  "description": "Present-tense forms of common irregular verbs.",
+  "stage": "A1",
+  "topic": "verbs",
+  "order": 9,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "ser-yo",
+      "kind": "Useful irregular verb",
+      "prompt": "Yo ___ de Suecia.",
+      "translation": "Use ser with yo: from Sweden.",
+      "verb": "ser",
+      "person": "1st person singular",
+      "answers": [
+        "soy"
+      ],
+      "answer": "soy",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "ser-tu",
+      "kind": "Useful irregular verb",
+      "prompt": "Tú ___ de Suecia.",
+      "translation": "Use ser with tú: from Sweden.",
+      "verb": "ser",
+      "person": "2nd person singular",
+      "answers": [
+        "eres"
+      ],
+      "answer": "eres",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "ser-ella",
+      "kind": "Useful irregular verb",
+      "prompt": "Ella ___ de Suecia.",
+      "translation": "Use ser with ella: from Sweden.",
+      "verb": "ser",
+      "person": "3rd person singular",
+      "answers": [
+        "es"
+      ],
+      "answer": "es",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "ser-nosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Nosotros ___ de Suecia.",
+      "translation": "Use ser with nosotros: from Sweden.",
+      "verb": "ser",
+      "person": "1st person plural",
+      "answers": [
+        "somos"
+      ],
+      "answer": "somos",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "ser-vosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Vosotros ___ de Suecia.",
+      "translation": "Use ser with vosotros: from Sweden.",
+      "verb": "ser",
+      "person": "2nd person plural",
+      "answers": [
+        "sois"
+      ],
+      "answer": "sois",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "ser-ellos",
+      "kind": "Useful irregular verb",
+      "prompt": "Ellos ___ de Suecia.",
+      "translation": "Use ser with ellos: from Sweden.",
+      "verb": "ser",
+      "person": "3rd person plural",
+      "answers": [
+        "son"
+      ],
+      "answer": "son",
+      "note": "ser is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-yo",
+      "kind": "Useful irregular verb",
+      "prompt": "Yo ___ en casa.",
+      "translation": "Use estar with yo: at home.",
+      "verb": "estar",
+      "person": "1st person singular",
+      "answers": [
+        "estoy"
+      ],
+      "answer": "estoy",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-tu",
+      "kind": "Useful irregular verb",
+      "prompt": "Tú ___ en casa.",
+      "translation": "Use estar with tú: at home.",
+      "verb": "estar",
+      "person": "2nd person singular",
+      "answers": [
+        "estás"
+      ],
+      "answer": "estás",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-ella",
+      "kind": "Useful irregular verb",
+      "prompt": "Ella ___ en casa.",
+      "translation": "Use estar with ella: at home.",
+      "verb": "estar",
+      "person": "3rd person singular",
+      "answers": [
+        "está"
+      ],
+      "answer": "está",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-nosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Nosotros ___ en casa.",
+      "translation": "Use estar with nosotros: at home.",
+      "verb": "estar",
+      "person": "1st person plural",
+      "answers": [
+        "estamos"
+      ],
+      "answer": "estamos",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-vosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Vosotros ___ en casa.",
+      "translation": "Use estar with vosotros: at home.",
+      "verb": "estar",
+      "person": "2nd person plural",
+      "answers": [
+        "estáis"
+      ],
+      "answer": "estáis",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "estar-ellos",
+      "kind": "Useful irregular verb",
+      "prompt": "Ellos ___ en casa.",
+      "translation": "Use estar with ellos: at home.",
+      "verb": "estar",
+      "person": "3rd person plural",
+      "answers": [
+        "están"
+      ],
+      "answer": "están",
+      "note": "estar is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-yo",
+      "kind": "Useful irregular verb",
+      "prompt": "Yo ___ mucho trabajo.",
+      "translation": "Use tener with yo: a lot of work.",
+      "verb": "tener",
+      "person": "1st person singular",
+      "answers": [
+        "tengo"
+      ],
+      "answer": "tengo",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-tu",
+      "kind": "Useful irregular verb",
+      "prompt": "Tú ___ mucho trabajo.",
+      "translation": "Use tener with tú: a lot of work.",
+      "verb": "tener",
+      "person": "2nd person singular",
+      "answers": [
+        "tienes"
+      ],
+      "answer": "tienes",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-ella",
+      "kind": "Useful irregular verb",
+      "prompt": "Ella ___ mucho trabajo.",
+      "translation": "Use tener with ella: a lot of work.",
+      "verb": "tener",
+      "person": "3rd person singular",
+      "answers": [
+        "tiene"
+      ],
+      "answer": "tiene",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-nosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Nosotros ___ mucho trabajo.",
+      "translation": "Use tener with nosotros: a lot of work.",
+      "verb": "tener",
+      "person": "1st person plural",
+      "answers": [
+        "tenemos"
+      ],
+      "answer": "tenemos",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-vosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Vosotros ___ mucho trabajo.",
+      "translation": "Use tener with vosotros: a lot of work.",
+      "verb": "tener",
+      "person": "2nd person plural",
+      "answers": [
+        "tenéis"
+      ],
+      "answer": "tenéis",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "tener-ellos",
+      "kind": "Useful irregular verb",
+      "prompt": "Ellos ___ mucho trabajo.",
+      "translation": "Use tener with ellos: a lot of work.",
+      "verb": "tener",
+      "person": "3rd person plural",
+      "answers": [
+        "tienen"
+      ],
+      "answer": "tienen",
+      "note": "tener is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-yo",
+      "kind": "Useful irregular verb",
+      "prompt": "Yo ___ comer ahora.",
+      "translation": "Use querer with yo: to eat now.",
+      "verb": "querer",
+      "person": "1st person singular",
+      "answers": [
+        "quiero"
+      ],
+      "answer": "quiero",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-tu",
+      "kind": "Useful irregular verb",
+      "prompt": "Tú ___ comer ahora.",
+      "translation": "Use querer with tú: to eat now.",
+      "verb": "querer",
+      "person": "2nd person singular",
+      "answers": [
+        "quieres"
+      ],
+      "answer": "quieres",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-ella",
+      "kind": "Useful irregular verb",
+      "prompt": "Ella ___ comer ahora.",
+      "translation": "Use querer with ella: to eat now.",
+      "verb": "querer",
+      "person": "3rd person singular",
+      "answers": [
+        "quiere"
+      ],
+      "answer": "quiere",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-nosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Nosotros ___ comer ahora.",
+      "translation": "Use querer with nosotros: to eat now.",
+      "verb": "querer",
+      "person": "1st person plural",
+      "answers": [
+        "queremos"
+      ],
+      "answer": "queremos",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-vosotros",
+      "kind": "Useful irregular verb",
+      "prompt": "Vosotros ___ comer ahora.",
+      "translation": "Use querer with vosotros: to eat now.",
+      "verb": "querer",
+      "person": "2nd person plural",
+      "answers": [
+        "queréis"
+      ],
+      "answer": "queréis",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    },
+    {
+      "id": "querer-ellos",
+      "kind": "Useful irregular verb",
+      "prompt": "Ellos ___ comer ahora.",
+      "translation": "Use querer with ellos: to eat now.",
+      "verb": "querer",
+      "person": "3rd person plural",
+      "answers": [
+        "quieren"
+      ],
+      "answer": "quieren",
+      "note": "querer is irregular, so learn its present-tense forms as a pattern."
+    }
+  ]
+}

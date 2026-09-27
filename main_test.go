@@ -7,6 +7,48 @@ import (
 	"testing"
 )
 
+func TestContentAPIProvidesValidatedPacks(t *testing.T) {
+	content, err := loadContent(assets)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(content.Packs) != 9 {
+		t.Fatalf("got %d packs, want 9", len(content.Packs))
+	}
+	cardCount := 0
+	for _, pack := range content.Packs {
+		cardCount += len(pack.Cards)
+	}
+	if cardCount != 205 {
+		t.Fatalf("got %d cards, want 205", cardCount)
+	}
+
+	request := httptest.NewRequest(http.MethodGet, "/api/content", nil)
+	response := httptest.NewRecorder()
+	contentHandler(content).ServeHTTP(response, request)
+	if response.Code != http.StatusOK {
+		t.Fatalf("got status %d, want %d", response.Code, http.StatusOK)
+	}
+	var result contentResponse
+	if err := json.NewDecoder(response.Body).Decode(&result); err != nil {
+		t.Fatal(err)
+	}
+	if result.Version != 1 || len(result.Packs) != 9 {
+		t.Fatalf("unexpected content response: version %d, packs %d", result.Version, len(result.Packs))
+	}
+}
+
+func TestContentValidationRejectsDuplicateCardIDs(t *testing.T) {
+	content, err := loadContent(assets)
+	if err != nil {
+		t.Fatal(err)
+	}
+	content.Packs[1].Cards[0].ID = content.Packs[0].Cards[0].ID
+	if err := validateContent(content); err == nil {
+		t.Fatal("duplicate card ID accepted")
+	}
+}
+
 func TestMeAPIUsesVerifiedProfileName(t *testing.T) {
 	request := httptest.NewRequest(http.MethodGet, "/api/me", nil)
 	request.Header.Set("X-Forwarded-User", "google-subject")

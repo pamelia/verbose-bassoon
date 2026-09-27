@@ -1,0 +1,96 @@
+{
+  "id": "a1-regular-ir",
+  "title": "Regular -ir verbs",
+  "description": "Present-tense practice with regular -ir verbs.",
+  "stage": "A1",
+  "topic": "verbs",
+  "order": 8,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "vivir-yo",
+      "kind": "Regular -ir verb",
+      "prompt": "Yo ___ en España.",
+      "translation": "I live in Spain.",
+      "verb": "vivir",
+      "person": "1st person singular",
+      "clue": "viv- + -o",
+      "answers": [
+        "vivo"
+      ],
+      "answer": "vivo",
+      "note": "Regular -ir verbs also use -o with yo."
+    },
+    {
+      "id": "escribir-tu",
+      "kind": "Regular -ir verb",
+      "prompt": "Tú ___ un mensaje.",
+      "translation": "You write a message.",
+      "verb": "escribir",
+      "person": "2nd person singular",
+      "clue": "escrib- + -es",
+      "answers": [
+        "escribes"
+      ],
+      "answer": "escribes",
+      "note": "Regular -ir verbs use -es with tú."
+    },
+    {
+      "id": "abrir-ella",
+      "kind": "Regular -ir verb",
+      "prompt": "Ella ___ la puerta.",
+      "translation": "She opens the door.",
+      "verb": "abrir",
+      "person": "3rd person singular",
+      "clue": "abr- + -e",
+      "answers": [
+        "abre"
+      ],
+      "answer": "abre",
+      "note": "Regular -ir verbs use -e with él, ella, or usted."
+    },
+    {
+      "id": "vivir-nosotros",
+      "kind": "Regular -ir verb",
+      "prompt": "Nosotros ___ aquí.",
+      "translation": "We live here.",
+      "verb": "vivir",
+      "person": "1st person plural",
+      "clue": "viv- + -imos",
+      "answers": [
+        "vivimos"
+      ],
+      "answer": "vivimos",
+      "note": "Regular -ir verbs use -imos with nosotros."
+    },
+    {
+      "id": "escribir-vosotros",
+      "kind": "Regular -ir verb",
+      "prompt": "Vosotros ___ correos.",
+      "translation": "You all write emails.",
+      "verb": "escribir",
+      "person": "2nd person plural",
+      "clue": "escrib- + -ís",
+      "answers": [
+        "escribis"
+      ],
+      "answer": "escribís",
+      "note": "In Spain, regular -ir verbs use -ís with vosotros."
+    },
+    {
+      "id": "abrir-ellas",
+      "kind": "Regular -ir verb",
+      "prompt": "Ellas ___ las ventanas.",
+      "translation": "They open the windows.",
+      "verb": "abrir",
+      "person": "3rd person plural",
+      "clue": "abr- + -en",
+      "answers": [
+        "abren"
+      ],
+      "answer": "abren",
+      "note": "Regular -ir verbs use -en with ellos or ellas."
+    }
+  ]
+}

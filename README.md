@@ -28,20 +28,31 @@ conversation, and understandable listening/reading remain essential.
 
 ## Run locally
 
-No build or package install is needed.
+No database or package install is needed. The Go server validates the lesson
+packs and serves the same content API used in production; progress stays in the
+browser when the authentication proxy and database are absent.
 
 ```bash
-python3 -m http.server 8080 --directory dist
+go run .
 ```
 
-Open <http://localhost:8080>. Without the production API, progress stays in the
-browser's local storage.
+Open <http://localhost:8080>. Without production authentication, progress stays
+in the browser's local storage.
 
 ## Check
 
 ```bash
+go test ./...
 node --test tests/app.test.mjs
 ```
+
+## Content
+
+The lesson packs in `content/` are the version-controlled source of truth.
+Each card ID is permanent because saved learner progress refers to it. Add or
+retire cards through a reviewed content change; do not reuse an existing ID for
+a different prompt. The Go server validates every pack at startup and returns
+the complete library from `GET /api/content`.
 
 ## Deployment
 

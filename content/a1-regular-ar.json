@@ -1,0 +1,516 @@
+{
+  "id": "a1-regular-ar",
+  "title": "Regular -ar verbs",
+  "description": "Present-tense practice with regular -ar verbs.",
+  "stage": "A1",
+  "topic": "verbs",
+  "order": 6,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "hablar-yo",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ un poco de español.",
+      "translation": "I speak a little Spanish.",
+      "verb": "hablar",
+      "person": "1st person singular",
+      "clue": "habl- + -o",
+      "answers": [
+        "hablo"
+      ],
+      "answer": "hablo",
+      "note": "For regular present-tense verbs, yo ends in -o."
+    },
+    {
+      "id": "estudiar-tu",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ español los martes.",
+      "translation": "You study Spanish on Tuesdays.",
+      "verb": "estudiar",
+      "person": "2nd person singular",
+      "clue": "estudi- + -as",
+      "answers": [
+        "estudias"
+      ],
+      "answer": "estudias",
+      "note": "Regular -ar verbs use -as with tú."
+    },
+    {
+      "id": "trabajar-ella",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ en Madrid.",
+      "translation": "She works in Madrid.",
+      "verb": "trabajar",
+      "person": "3rd person singular",
+      "clue": "trabaj- + -a",
+      "answers": [
+        "trabaja"
+      ],
+      "answer": "trabaja",
+      "note": "Regular -ar verbs use -a with él, ella, or usted."
+    },
+    {
+      "id": "bailar-nosotros",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ los viernes.",
+      "translation": "We dance on Fridays.",
+      "verb": "bailar",
+      "person": "1st person plural",
+      "clue": "bail- + -amos",
+      "answers": [
+        "bailamos"
+      ],
+      "answer": "bailamos",
+      "note": "Regular -ar verbs use -amos with nosotros."
+    },
+    {
+      "id": "escuchar-vosotros",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ música.",
+      "translation": "You all listen to music.",
+      "verb": "escuchar",
+      "person": "2nd person plural",
+      "clue": "escuch- + -áis",
+      "answers": [
+        "escuchais"
+      ],
+      "answer": "escucháis",
+      "note": "In Spain, regular -ar verbs use -áis with vosotros."
+    },
+    {
+      "id": "viajar-ellos",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ mucho.",
+      "translation": "They travel a lot.",
+      "verb": "viajar",
+      "person": "3rd person plural",
+      "clue": "viaj- + -an",
+      "answers": [
+        "viajan"
+      ],
+      "answer": "viajan",
+      "note": "Regular -ar verbs use -an with ellos or ellas."
+    },
+    {
+      "id": "cocinar-yo-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ en casa.",
+      "translation": "I cook at home.",
+      "verb": "cocinar",
+      "person": "1st person singular",
+      "clue": "cocin- + o",
+      "answers": [
+        "cocino"
+      ],
+      "answer": "cocino",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "cocinar-tu-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ en casa.",
+      "translation": "You cook at home.",
+      "verb": "cocinar",
+      "person": "2nd person singular",
+      "clue": "cocin- + as",
+      "answers": [
+        "cocinas"
+      ],
+      "answer": "cocinas",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "cocinar-ella-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ en casa.",
+      "translation": "She cooks at home.",
+      "verb": "cocinar",
+      "person": "3rd person singular",
+      "clue": "cocin- + a",
+      "answers": [
+        "cocina"
+      ],
+      "answer": "cocina",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "cocinar-nosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ en casa.",
+      "translation": "We cook at home.",
+      "verb": "cocinar",
+      "person": "1st person plural",
+      "clue": "cocin- + amos",
+      "answers": [
+        "cocinamos"
+      ],
+      "answer": "cocinamos",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "cocinar-vosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ en casa.",
+      "translation": "You all cook at home.",
+      "verb": "cocinar",
+      "person": "2nd person plural",
+      "clue": "cocin- + áis",
+      "answers": [
+        "cocináis"
+      ],
+      "answer": "cocináis",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "cocinar-ellos-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ en casa.",
+      "translation": "They cook at home.",
+      "verb": "cocinar",
+      "person": "3rd person plural",
+      "clue": "cocin- + an",
+      "answers": [
+        "cocinan"
+      ],
+      "answer": "cocinan",
+      "note": "This is the present tense of cocinar."
+    },
+    {
+      "id": "nadar-yo-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ los sábados.",
+      "translation": "I swim on Saturdays.",
+      "verb": "nadar",
+      "person": "1st person singular",
+      "clue": "nad- + o",
+      "answers": [
+        "nado"
+      ],
+      "answer": "nado",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "nadar-tu-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ los sábados.",
+      "translation": "You swim on Saturdays.",
+      "verb": "nadar",
+      "person": "2nd person singular",
+      "clue": "nad- + as",
+      "answers": [
+        "nadas"
+      ],
+      "answer": "nadas",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "nadar-ella-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ los sábados.",
+      "translation": "She swims on Saturdays.",
+      "verb": "nadar",
+      "person": "3rd person singular",
+      "clue": "nad- + a",
+      "answers": [
+        "nada"
+      ],
+      "answer": "nada",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "nadar-nosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ los sábados.",
+      "translation": "We swim on Saturdays.",
+      "verb": "nadar",
+      "person": "1st person plural",
+      "clue": "nad- + amos",
+      "answers": [
+        "nadamos"
+      ],
+      "answer": "nadamos",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "nadar-vosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ los sábados.",
+      "translation": "You all swim on Saturdays.",
+      "verb": "nadar",
+      "person": "2nd person plural",
+      "clue": "nad- + áis",
+      "answers": [
+        "nadáis"
+      ],
+      "answer": "nadáis",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "nadar-ellos-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ los sábados.",
+      "translation": "They swim on Saturdays.",
+      "verb": "nadar",
+      "person": "3rd person plural",
+      "clue": "nad- + an",
+      "answers": [
+        "nadan"
+      ],
+      "answer": "nadan",
+      "note": "This is the present tense of nadar."
+    },
+    {
+      "id": "limpiar-yo-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ la cocina.",
+      "translation": "I clean the kitchen.",
+      "verb": "limpiar",
+      "person": "1st person singular",
+      "clue": "limpi- + o",
+      "answers": [
+        "limpio"
+      ],
+      "answer": "limpio",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "limpiar-tu-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ la cocina.",
+      "translation": "You clean the kitchen.",
+      "verb": "limpiar",
+      "person": "2nd person singular",
+      "clue": "limpi- + as",
+      "answers": [
+        "limpias"
+      ],
+      "answer": "limpias",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "limpiar-ella-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ la cocina.",
+      "translation": "She cleans the kitchen.",
+      "verb": "limpiar",
+      "person": "3rd person singular",
+      "clue": "limpi- + a",
+      "answers": [
+        "limpia"
+      ],
+      "answer": "limpia",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "limpiar-nosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ la cocina.",
+      "translation": "We clean the kitchen.",
+      "verb": "limpiar",
+      "person": "1st person plural",
+      "clue": "limpi- + amos",
+      "answers": [
+        "limpiamos"
+      ],
+      "answer": "limpiamos",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "limpiar-vosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ la cocina.",
+      "translation": "You all clean the kitchen.",
+      "verb": "limpiar",
+      "person": "2nd person plural",
+      "clue": "limpi- + áis",
+      "answers": [
+        "limpiáis"
+      ],
+      "answer": "limpiáis",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "limpiar-ellos-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ la cocina.",
+      "translation": "They clean the kitchen.",
+      "verb": "limpiar",
+      "person": "3rd person plural",
+      "clue": "limpi- + an",
+      "answers": [
+        "limpian"
+      ],
+      "answer": "limpian",
+      "note": "This is the present tense of limpiar."
+    },
+    {
+      "id": "visitar-yo-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ museos.",
+      "translation": "I visit museums.",
+      "verb": "visitar",
+      "person": "1st person singular",
+      "clue": "visit- + o",
+      "answers": [
+        "visito"
+      ],
+      "answer": "visito",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "visitar-tu-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ museos.",
+      "translation": "You visit museums.",
+      "verb": "visitar",
+      "person": "2nd person singular",
+      "clue": "visit- + as",
+      "answers": [
+        "visitas"
+      ],
+      "answer": "visitas",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "visitar-ella-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ museos.",
+      "translation": "She visits museums.",
+      "verb": "visitar",
+      "person": "3rd person singular",
+      "clue": "visit- + a",
+      "answers": [
+        "visita"
+      ],
+      "answer": "visita",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "visitar-nosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ museos.",
+      "translation": "We visit museums.",
+      "verb": "visitar",
+      "person": "1st person plural",
+      "clue": "visit- + amos",
+      "answers": [
+        "visitamos"
+      ],
+      "answer": "visitamos",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "visitar-vosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ museos.",
+      "translation": "You all visit museums.",
+      "verb": "visitar",
+      "person": "2nd person plural",
+      "clue": "visit- + áis",
+      "answers": [
+        "visitáis"
+      ],
+      "answer": "visitáis",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "visitar-ellos-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ museos.",
+      "translation": "They visit museums.",
+      "verb": "visitar",
+      "person": "3rd person plural",
+      "clue": "visit- + an",
+      "answers": [
+        "visitan"
+      ],
+      "answer": "visitan",
+      "note": "This is the present tense of visitar."
+    },
+    {
+      "id": "cantar-yo-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Yo ___ en la ducha.",
+      "translation": "I sing in the shower.",
+      "verb": "cantar",
+      "person": "1st person singular",
+      "clue": "cant- + o",
+      "answers": [
+        "canto"
+      ],
+      "answer": "canto",
+      "note": "This is the present tense of cantar."
+    },
+    {
+      "id": "cantar-tu-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Tú ___ en la ducha.",
+      "translation": "You sing in the shower.",
+      "verb": "cantar",
+      "person": "2nd person singular",
+      "clue": "cant- + as",
+      "answers": [
+        "cantas"
+      ],
+      "answer": "cantas",
+      "note": "This is the present tense of cantar."
+    },
+    {
+      "id": "cantar-ella-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ella ___ en la ducha.",
+      "translation": "She sings in the shower.",
+      "verb": "cantar",
+      "person": "3rd person singular",
+      "clue": "cant- + a",
+      "answers": [
+        "canta"
+      ],
+      "answer": "canta",
+      "note": "This is the present tense of cantar."
+    },
+    {
+      "id": "cantar-nosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Nosotros ___ en la ducha.",
+      "translation": "We sing in the shower.",
+      "verb": "cantar",
+      "person": "1st person plural",
+      "clue": "cant- + amos",
+      "answers": [
+        "cantamos"
+      ],
+      "answer": "cantamos",
+      "note": "This is the present tense of cantar."
+    },
+    {
+      "id": "cantar-vosotros-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Vosotros ___ en la ducha.",
+      "translation": "You all sing in the shower.",
+      "verb": "cantar",
+      "person": "2nd person plural",
+      "clue": "cant- + áis",
+      "answers": [
+        "cantáis"
+      ],
+      "answer": "cantáis",
+      "note": "This is the present tense of cantar."
+    },
+    {
+      "id": "cantar-ellos-lesson",
+      "kind": "Regular -ar verb",
+      "prompt": "Ellos ___ en la ducha.",
+      "translation": "They sing in the shower.",
+      "verb": "cantar",
+      "person": "3rd person plural",
+      "clue": "cant- + an",
+      "answers": [
+        "cantan"
+      ],
+      "answer": "cantan",
+      "note": "This is the present tense of cantar."
+    }
+  ]
+}

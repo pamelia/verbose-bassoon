@@ -1,7 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
-import { cards, chooseSession, isCorrect, normalize, resetState, schedule } from "../dist/app.js";
+import { readdirSync, readFileSync } from "node:fs";
+import { chooseSession, flattenContent, isCorrect, normalize, resetState, schedule } from "../dist/app.js";
+
+const packFiles = readdirSync(new URL("../content/", import.meta.url)).filter((name) => name.endsWith(".json"));
+const content = {
+  version: 1,
+  packs: packFiles.map((name) => JSON.parse(readFileSync(new URL(`../content/${name}`, import.meta.url), "utf8"))),
+};
+const cards = flattenContent(content);
 
 test("browser assets cannot stay stale after a deployment", () => {
   const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
@@ -15,6 +22,8 @@ test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
   assert.equal(cards.length, 205);
   assert.equal(new Set(cards.map(({ id }) => id)).size, cards.length);
   assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs"]));
+  assert.equal(content.packs.length, 9);
+  assert.ok(content.packs.every(({ id, title, stage, cards }) => id && title && stage && cards.length));
 });
 
 test("profession prompts identify the profession instead of asking for a guess", () => {
