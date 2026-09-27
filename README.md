@@ -1,9 +1,10 @@
 # ¡Dale!
 
-A tiny, ad-free Spanish practice app with 205 prompts from the first weeks of A1 study. It mixes
+A tiny, ad-free Spanish practice app with 499 prompts spanning an A1 course. It mixes
 sentence completion, phrase recall, immediate feedback, and lightweight spaced
 practice in a ten-question session. A round can focus on conversation, people
-and professions, likes and plans, verbs, or numbers. Say-it-aloud mode lets two
+and professions, likes and plans, verbs, numbers, places, shopping, routines,
+food, or abilities. Say-it-aloud mode lets two
 people take turns, reveal the answer, and self-grade without typing.
 
 ## Why this is not just a flashcard deck

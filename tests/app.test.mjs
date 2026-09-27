@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
-import { chooseSession, flattenContent, isCorrect, normalize, resetState, schedule } from "../dist/app.js";
+import { cardsForUnit, chooseSession, flattenContent, isCorrect, normalize, resetState, schedule } from "../dist/app.js";
 
 const packFiles = readdirSync(new URL("../content/", import.meta.url)).filter((name) => name.endsWith(".json"));
 const content = {
@@ -24,11 +24,23 @@ test("authenticated learners can log out through the proxy", () => {
 });
 
 test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
-  assert.equal(cards.length, 205);
+  assert.equal(cards.length, 499);
   assert.equal(new Set(cards.map(({ id }) => id)).size, cards.length);
-  assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs"]));
-  assert.equal(content.packs.length, 9);
+  assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs", "places", "shopping", "routines", "food", "abilities"]));
+  assert.equal(content.packs.length, 16);
   assert.ok(content.packs.every(({ id, title, stage, cards }) => id && title && stage && cards.length));
+});
+
+test("future course units contain substantial original practice", () => {
+  const units = content.packs.filter(({ id }) => /^a1-unit-[3-9]-/.test(id));
+  assert.equal(units.length, 7);
+  assert.ok(units.every(({ cards, source }) => cards.length === 42 && source.startsWith("Original exercises")));
+});
+
+test("future units stay out of practice until the learner unlocks them", () => {
+  assert.equal(cardsForUnit(cards, 2).length, 205);
+  assert.equal(cardsForUnit(cards, 3).length, 247);
+  assert.equal(cardsForUnit(cards, 9).length, 499);
 });
 
 test("profession prompts identify the profession instead of asking for a guess", () => {
@@ -55,7 +67,7 @@ test("remembered cards are spaced farther out and missed cards return soon", () 
 });
 
 test("starting over creates a newer empty state for cross-device sync", () => {
-  assert.deepEqual(resetState(1234), { cards: {}, streak: {}, updatedAt: 1234 });
+  assert.deepEqual(resetState(1234), { cards: {}, streak: {}, courseUnit: 2, updatedAt: 1234 });
 });
 
 test("session selection returns ten prompts with overdue work first", () => {

@@ -12,15 +12,15 @@ func TestContentAPIProvidesValidatedPacks(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(content.Packs) != 9 {
-		t.Fatalf("got %d packs, want 9", len(content.Packs))
+	if len(content.Packs) != 16 {
+		t.Fatalf("got %d packs, want 16", len(content.Packs))
 	}
 	cardCount := 0
 	for _, pack := range content.Packs {
 		cardCount += len(pack.Cards)
 	}
-	if cardCount != 205 {
-		t.Fatalf("got %d cards, want 205", cardCount)
+	if cardCount != 499 {
+		t.Fatalf("got %d cards, want 499", cardCount)
 	}
 
 	request := httptest.NewRequest(http.MethodGet, "/api/content", nil)
@@ -33,7 +33,7 @@ func TestContentAPIProvidesValidatedPacks(t *testing.T) {
 	if err := json.NewDecoder(response.Body).Decode(&result); err != nil {
 		t.Fatal(err)
 	}
-	if result.Version != 1 || len(result.Packs) != 9 {
+	if result.Version != 1 || len(result.Packs) != 16 {
 		t.Fatalf("unexpected content response: version %d, packs %d", result.Version, len(result.Packs))
 	}
 }
