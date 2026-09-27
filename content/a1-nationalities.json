@@ -1,0 +1,300 @@
+{
+  "id": "a1-nationalities",
+  "title": "Nationalities",
+  "description": "Countries, nationalities, and gender agreement.",
+  "stage": "A1",
+  "topic": "people",
+  "order": 4,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "nationality-estados-unidos-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Estados Unidos. Es ___.",
+      "translation": "He is from Estados Unidos.",
+      "person": "masculine singular",
+      "answers": [
+        "estadounidense"
+      ],
+      "answer": "estadounidense",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-estados-unidos-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Estados Unidos. Es ___.",
+      "translation": "She is from Estados Unidos.",
+      "person": "feminine singular",
+      "answers": [
+        "estadounidense"
+      ],
+      "answer": "estadounidense",
+      "note": "This nationality has the same form for men and women."
+    },
+    {
+      "id": "nationality-alemania-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Alemania. Es ___.",
+      "translation": "He is from Alemania.",
+      "person": "masculine singular",
+      "answers": [
+        "alemán"
+      ],
+      "answer": "alemán",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-alemania-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Alemania. Es ___.",
+      "translation": "She is from Alemania.",
+      "person": "feminine singular",
+      "answers": [
+        "alemana"
+      ],
+      "answer": "alemana",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-inglaterra-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Inglaterra. Es ___.",
+      "translation": "He is from Inglaterra.",
+      "person": "masculine singular",
+      "answers": [
+        "inglés"
+      ],
+      "answer": "inglés",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-inglaterra-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Inglaterra. Es ___.",
+      "translation": "She is from Inglaterra.",
+      "person": "feminine singular",
+      "answers": [
+        "inglesa"
+      ],
+      "answer": "inglesa",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-argentina-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Argentina. Es ___.",
+      "translation": "He is from Argentina.",
+      "person": "masculine singular",
+      "answers": [
+        "argentino"
+      ],
+      "answer": "argentino",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-argentina-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Argentina. Es ___.",
+      "translation": "She is from Argentina.",
+      "person": "feminine singular",
+      "answers": [
+        "argentina"
+      ],
+      "answer": "argentina",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-japon-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Japón. Es ___.",
+      "translation": "He is from Japón.",
+      "person": "masculine singular",
+      "answers": [
+        "japonés"
+      ],
+      "answer": "japonés",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-japon-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Japón. Es ___.",
+      "translation": "She is from Japón.",
+      "person": "feminine singular",
+      "answers": [
+        "japonesa"
+      ],
+      "answer": "japonesa",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-belgica-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Bélgica. Es ___.",
+      "translation": "He is from Bélgica.",
+      "person": "masculine singular",
+      "answers": [
+        "belga"
+      ],
+      "answer": "belga",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-belgica-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Bélgica. Es ___.",
+      "translation": "She is from Bélgica.",
+      "person": "feminine singular",
+      "answers": [
+        "belga"
+      ],
+      "answer": "belga",
+      "note": "This nationality has the same form for men and women."
+    },
+    {
+      "id": "nationality-italia-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Italia. Es ___.",
+      "translation": "He is from Italia.",
+      "person": "masculine singular",
+      "answers": [
+        "italiano"
+      ],
+      "answer": "italiano",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-italia-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Italia. Es ___.",
+      "translation": "She is from Italia.",
+      "person": "feminine singular",
+      "answers": [
+        "italiana"
+      ],
+      "answer": "italiana",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-noruega-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Noruega. Es ___.",
+      "translation": "He is from Noruega.",
+      "person": "masculine singular",
+      "answers": [
+        "noruego"
+      ],
+      "answer": "noruego",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-noruega-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Noruega. Es ___.",
+      "translation": "She is from Noruega.",
+      "person": "feminine singular",
+      "answers": [
+        "noruega"
+      ],
+      "answer": "noruega",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-espana-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de España. Es ___.",
+      "translation": "He is from España.",
+      "person": "masculine singular",
+      "answers": [
+        "español"
+      ],
+      "answer": "español",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-espana-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de España. Es ___.",
+      "translation": "She is from España.",
+      "person": "feminine singular",
+      "answers": [
+        "española"
+      ],
+      "answer": "española",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-portugal-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Portugal. Es ___.",
+      "translation": "He is from Portugal.",
+      "person": "masculine singular",
+      "answers": [
+        "portugués"
+      ],
+      "answer": "portugués",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-portugal-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Portugal. Es ___.",
+      "translation": "She is from Portugal.",
+      "person": "feminine singular",
+      "answers": [
+        "portuguesa"
+      ],
+      "answer": "portuguesa",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-francia-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Francia. Es ___.",
+      "translation": "He is from Francia.",
+      "person": "masculine singular",
+      "answers": [
+        "francés"
+      ],
+      "answer": "francés",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-francia-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Francia. Es ___.",
+      "translation": "She is from Francia.",
+      "person": "feminine singular",
+      "answers": [
+        "francesa"
+      ],
+      "answer": "francesa",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-uganda-m",
+      "kind": "Nationalities",
+      "prompt": "Él es de Uganda. Es ___.",
+      "translation": "He is from Uganda.",
+      "person": "masculine singular",
+      "answers": [
+        "ugandés"
+      ],
+      "answer": "ugandés",
+      "note": "Nationality words agree with the person."
+    },
+    {
+      "id": "nationality-uganda-f",
+      "kind": "Nationalities",
+      "prompt": "Ella es de Uganda. Es ___.",
+      "translation": "She is from Uganda.",
+      "person": "feminine singular",
+      "answers": [
+        "ugandesa"
+      ],
+      "answer": "ugandesa",
+      "note": "Nationality words agree with the person."
+    }
+  ]
+}

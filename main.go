@@ -11,6 +11,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"sort"
 	"time"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
@@ -18,8 +19,38 @@ import (
 
 const maxStateBytes = 512 << 10
 
-//go:embed dist
+//go:embed dist content/*.json
 var assets embed.FS
+
+type contentResponse struct {
+	Version int           `json:"version"`
+	Packs   []contentPack `json:"packs"`
+}
+
+type contentPack struct {
+	ID            string   `json:"id"`
+	Title         string   `json:"title"`
+	Description   string   `json:"description"`
+	Stage         string   `json:"stage"`
+	Topic         string   `json:"topic"`
+	Order         int      `json:"order"`
+	Prerequisites []string `json:"prerequisites"`
+	Source        string   `json:"source"`
+	Cards         []card   `json:"cards"`
+}
+
+type card struct {
+	ID          string   `json:"id"`
+	Kind        string   `json:"kind"`
+	Prompt      string   `json:"prompt"`
+	Translation string   `json:"translation"`
+	Verb        string   `json:"verb,omitempty"`
+	Person      string   `json:"person,omitempty"`
+	Clue        string   `json:"clue,omitempty"`
+	Answers     []string `json:"answers"`
+	Answer      string   `json:"answer"`
+	Note        string   `json:"note"`
+}
 
 type cardProgress struct {
 	Level    int   `json:"level"`
@@ -39,28 +70,38 @@ type studyState struct {
 }
 
 func main() {
-	databaseURL := os.Getenv("DATABASE_URL")
-	if databaseURL == "" {
-		log.Fatal("DATABASE_URL is required")
-	}
-
-	db, err := sql.Open("pgx", databaseURL)
+	content, err := loadContent(assets)
 	if err != nil {
 		log.Fatal(err)
 	}
-	db.SetMaxOpenConns(4)
-	db.SetMaxIdleConns(2)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
-	defer cancel()
-	if _, err := db.ExecContext(ctx, `
-		CREATE TABLE IF NOT EXISTS study_progress (
-			google_subject text PRIMARY KEY,
-			email text NOT NULL DEFAULT '',
-			state jsonb NOT NULL,
-			updated_at timestamptz NOT NULL DEFAULT now()
-		)`); err != nil {
-		log.Fatal(err)
+	trustProxyIdentity := os.Getenv("TRUST_PROXY_IDENTITY") == "true"
+	databaseURL := os.Getenv("DATABASE_URL")
+	if databaseURL == "" && trustProxyIdentity {
+		log.Fatal("DATABASE_URL is required")
+	}
+
+	var db *sql.DB
+	if databaseURL != "" {
+		db, err = sql.Open("pgx", databaseURL)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer db.Close()
+		db.SetMaxOpenConns(4)
+		db.SetMaxIdleConns(2)
+
+		ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+		defer cancel()
+		if _, err := db.ExecContext(ctx, `
+			CREATE TABLE IF NOT EXISTS study_progress (
+				google_subject text PRIMARY KEY,
+				email text NOT NULL DEFAULT '',
+				state jsonb NOT NULL,
+				updated_at timestamptz NOT NULL DEFAULT now()
+			)`); err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	static, err := fs.Sub(assets, "dist")
@@ -70,15 +111,16 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request) { w.Write([]byte("ok\n")) })
-	mux.HandleFunc("/readyz", func(w http.ResponseWriter, _ *http.Request) {
-		if err := db.Ping(); err != nil {
+	mux.HandleFunc("/readyz", func(w http.ResponseWriter, r *http.Request) {
+		if db != nil && db.PingContext(r.Context()) != nil {
 			http.Error(w, "database unavailable", http.StatusServiceUnavailable)
 			return
 		}
 		w.Write([]byte("ok\n"))
 	})
-	mux.HandleFunc("/api/me", meHandler(os.Getenv("TRUST_PROXY_IDENTITY") == "true"))
-	mux.HandleFunc("/api/progress", progressHandler(db, os.Getenv("TRUST_PROXY_IDENTITY") == "true"))
+	mux.HandleFunc("/api/content", contentHandler(content))
+	mux.HandleFunc("/api/me", meHandler(trustProxyIdentity))
+	mux.HandleFunc("/api/progress", progressHandler(db, trustProxyIdentity))
 	mux.Handle("/", http.FileServer(http.FS(static)))
 
 	server := &http.Server{
@@ -91,6 +133,85 @@ func main() {
 	}
 	log.Printf("listening on %s", server.Addr)
 	log.Fatal(server.ListenAndServe())
+}
+
+func loadContent(fsys fs.FS) (contentResponse, error) {
+	paths, err := fs.Glob(fsys, "content/*.json")
+	if err != nil {
+		return contentResponse{}, err
+	}
+	if len(paths) == 0 {
+		return contentResponse{}, errors.New("no content packs found")
+	}
+
+	content := contentResponse{Version: 1}
+	for _, path := range paths {
+		file, err := fsys.Open(path)
+		if err != nil {
+			return contentResponse{}, err
+		}
+		decoder := json.NewDecoder(file)
+		decoder.DisallowUnknownFields()
+		var pack contentPack
+		if err := decoder.Decode(&pack); err != nil {
+			file.Close()
+			return contentResponse{}, errors.New(path + ": " + err.Error())
+		}
+		if err := decoder.Decode(&struct{}{}); !errors.Is(err, io.EOF) {
+			file.Close()
+			return contentResponse{}, errors.New(path + ": invalid trailing content")
+		}
+		file.Close()
+		content.Packs = append(content.Packs, pack)
+	}
+	sort.Slice(content.Packs, func(i, j int) bool { return content.Packs[i].Order < content.Packs[j].Order })
+	if err := validateContent(content); err != nil {
+		return contentResponse{}, err
+	}
+	return content, nil
+}
+
+func validateContent(content contentResponse) error {
+	packIDs := make(map[string]bool, len(content.Packs))
+	cardIDs := make(map[string]bool)
+	validTopics := map[string]bool{"conversation": true, "plans": true, "numbers": true, "people": true, "verbs": true}
+	for _, pack := range content.Packs {
+		if pack.ID == "" || pack.Title == "" || pack.Description == "" || pack.Stage == "" || !validTopics[pack.Topic] || pack.Order < 1 || pack.Source == "" || len(pack.Cards) == 0 || packIDs[pack.ID] {
+			return errors.New("invalid content pack: " + pack.ID)
+		}
+		packIDs[pack.ID] = true
+		for _, card := range pack.Cards {
+			if card.ID == "" || len(card.ID) > 100 || card.Kind == "" || card.Prompt == "" || card.Translation == "" || len(card.Answers) == 0 || card.Answer == "" || card.Note == "" || cardIDs[card.ID] {
+				return errors.New("invalid content card: " + card.ID)
+			}
+			for _, answer := range card.Answers {
+				if answer == "" {
+					return errors.New("invalid content answer: " + card.ID)
+				}
+			}
+			cardIDs[card.ID] = true
+		}
+	}
+	for _, pack := range content.Packs {
+		for _, prerequisite := range pack.Prerequisites {
+			if !packIDs[prerequisite] || prerequisite == pack.ID {
+				return errors.New("invalid prerequisite for content pack: " + pack.ID)
+			}
+		}
+	}
+	return nil
+}
+
+func contentHandler(content contentResponse) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			w.Header().Set("Allow", "GET")
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		w.Header().Set("Cache-Control", "no-store")
+		writeJSON(w, content)
+	}
 }
 
 func meHandler(trustProxyIdentity bool) http.HandlerFunc {

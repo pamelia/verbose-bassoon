@@ -1,0 +1,642 @@
+{
+  "id": "a1-numbers",
+  "title": "Numbers",
+  "description": "Reading and producing common Spanish numbers.",
+  "stage": "A1",
+  "topic": "numbers",
+  "order": 3,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "number-1",
+      "kind": "Numbers",
+      "prompt": "1 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "uno",
+        "una",
+        "un"
+      ],
+      "answer": "uno",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-2",
+      "kind": "Numbers",
+      "prompt": "2 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "dos"
+      ],
+      "answer": "dos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-3",
+      "kind": "Numbers",
+      "prompt": "3 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "tres"
+      ],
+      "answer": "tres",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-4",
+      "kind": "Numbers",
+      "prompt": "4 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cuatro"
+      ],
+      "answer": "cuatro",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-5",
+      "kind": "Numbers",
+      "prompt": "5 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cinco"
+      ],
+      "answer": "cinco",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-6",
+      "kind": "Numbers",
+      "prompt": "6 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "seis"
+      ],
+      "answer": "seis",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-7",
+      "kind": "Numbers",
+      "prompt": "7 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "siete"
+      ],
+      "answer": "siete",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-8",
+      "kind": "Numbers",
+      "prompt": "8 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "ocho"
+      ],
+      "answer": "ocho",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-9",
+      "kind": "Numbers",
+      "prompt": "9 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "nueve"
+      ],
+      "answer": "nueve",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-10",
+      "kind": "Numbers",
+      "prompt": "10 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "diez"
+      ],
+      "answer": "diez",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-11",
+      "kind": "Numbers",
+      "prompt": "11 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "once"
+      ],
+      "answer": "once",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-12",
+      "kind": "Numbers",
+      "prompt": "12 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "doce"
+      ],
+      "answer": "doce",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-13",
+      "kind": "Numbers",
+      "prompt": "13 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "trece"
+      ],
+      "answer": "trece",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-14",
+      "kind": "Numbers",
+      "prompt": "14 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "catorce"
+      ],
+      "answer": "catorce",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-15",
+      "kind": "Numbers",
+      "prompt": "15 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "quince"
+      ],
+      "answer": "quince",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-16",
+      "kind": "Numbers",
+      "prompt": "16 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "dieciséis"
+      ],
+      "answer": "dieciséis",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-17",
+      "kind": "Numbers",
+      "prompt": "17 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "diecisiete"
+      ],
+      "answer": "diecisiete",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-18",
+      "kind": "Numbers",
+      "prompt": "18 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "dieciocho"
+      ],
+      "answer": "dieciocho",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-19",
+      "kind": "Numbers",
+      "prompt": "19 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "diecinueve"
+      ],
+      "answer": "diecinueve",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-20",
+      "kind": "Numbers",
+      "prompt": "20 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veinte"
+      ],
+      "answer": "veinte",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-21",
+      "kind": "Numbers",
+      "prompt": "21 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintiuno",
+        "veintiuna",
+        "veintiun"
+      ],
+      "answer": "veintiuno",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-22",
+      "kind": "Numbers",
+      "prompt": "22 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintidós"
+      ],
+      "answer": "veintidós",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-23",
+      "kind": "Numbers",
+      "prompt": "23 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintitrés"
+      ],
+      "answer": "veintitrés",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-24",
+      "kind": "Numbers",
+      "prompt": "24 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veinticuatro"
+      ],
+      "answer": "veinticuatro",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-25",
+      "kind": "Numbers",
+      "prompt": "25 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veinticinco"
+      ],
+      "answer": "veinticinco",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-26",
+      "kind": "Numbers",
+      "prompt": "26 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintiséis"
+      ],
+      "answer": "veintiséis",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-27",
+      "kind": "Numbers",
+      "prompt": "27 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintisiete"
+      ],
+      "answer": "veintisiete",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-28",
+      "kind": "Numbers",
+      "prompt": "28 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintiocho"
+      ],
+      "answer": "veintiocho",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-29",
+      "kind": "Numbers",
+      "prompt": "29 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "veintinueve"
+      ],
+      "answer": "veintinueve",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-30",
+      "kind": "Numbers",
+      "prompt": "30 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "treinta"
+      ],
+      "answer": "treinta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-31",
+      "kind": "Numbers",
+      "prompt": "31 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "treinta y uno",
+        "treinta y una",
+        "treinta y un"
+      ],
+      "answer": "treinta y uno",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-32",
+      "kind": "Numbers",
+      "prompt": "32 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "treinta y dos"
+      ],
+      "answer": "treinta y dos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-40",
+      "kind": "Numbers",
+      "prompt": "40 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cuarenta"
+      ],
+      "answer": "cuarenta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-50",
+      "kind": "Numbers",
+      "prompt": "50 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cincuenta"
+      ],
+      "answer": "cincuenta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-60",
+      "kind": "Numbers",
+      "prompt": "60 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "sesenta"
+      ],
+      "answer": "sesenta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-70",
+      "kind": "Numbers",
+      "prompt": "70 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "setenta"
+      ],
+      "answer": "setenta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-80",
+      "kind": "Numbers",
+      "prompt": "80 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "ochenta"
+      ],
+      "answer": "ochenta",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-90",
+      "kind": "Numbers",
+      "prompt": "90 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "noventa"
+      ],
+      "answer": "noventa",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-100",
+      "kind": "Numbers",
+      "prompt": "100 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cien"
+      ],
+      "answer": "cien",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-101",
+      "kind": "Numbers",
+      "prompt": "101 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "ciento uno"
+      ],
+      "answer": "ciento uno",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-182",
+      "kind": "Numbers",
+      "prompt": "182 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "ciento ochenta y dos"
+      ],
+      "answer": "ciento ochenta y dos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-200",
+      "kind": "Numbers",
+      "prompt": "200 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "doscientos",
+        "doscientas"
+      ],
+      "answer": "doscientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-300",
+      "kind": "Numbers",
+      "prompt": "300 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "trescientos",
+        "trescientas"
+      ],
+      "answer": "trescientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-400",
+      "kind": "Numbers",
+      "prompt": "400 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cuatrocientos",
+        "cuatrocientas"
+      ],
+      "answer": "cuatrocientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-500",
+      "kind": "Numbers",
+      "prompt": "500 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "quinientos",
+        "quinientas"
+      ],
+      "answer": "quinientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-600",
+      "kind": "Numbers",
+      "prompt": "600 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "seiscientos",
+        "seiscientas"
+      ],
+      "answer": "seiscientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-700",
+      "kind": "Numbers",
+      "prompt": "700 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "setecientos",
+        "setecientas"
+      ],
+      "answer": "setecientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-800",
+      "kind": "Numbers",
+      "prompt": "800 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "ochocientos",
+        "ochocientas"
+      ],
+      "answer": "ochocientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-900",
+      "kind": "Numbers",
+      "prompt": "900 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "novecientos",
+        "novecientas"
+      ],
+      "answer": "novecientos",
+      "note": "Say it aloud once more before moving on."
+    },
+    {
+      "id": "number-1000",
+      "kind": "Numbers",
+      "prompt": "1,000 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "mil"
+      ],
+      "answer": "mil",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-1001",
+      "kind": "Numbers",
+      "prompt": "1,001 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "mil uno"
+      ],
+      "answer": "mil uno",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-1010",
+      "kind": "Numbers",
+      "prompt": "1,010 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "mil diez"
+      ],
+      "answer": "mil diez",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-1100",
+      "kind": "Numbers",
+      "prompt": "1,100 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "mil cien"
+      ],
+      "answer": "mil cien",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-10000",
+      "kind": "Numbers",
+      "prompt": "10,000 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "diez mil"
+      ],
+      "answer": "diez mil",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-100000",
+      "kind": "Numbers",
+      "prompt": "100,000 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "cien mil"
+      ],
+      "answer": "cien mil",
+      "note": "Mil is not plural in compound numbers."
+    },
+    {
+      "id": "number-1000000",
+      "kind": "Numbers",
+      "prompt": "1,000,000 → ___",
+      "translation": "Write the number in Spanish.",
+      "answers": [
+        "un millón"
+      ],
+      "answer": "un millón",
+      "note": "Mil is not plural in compound numbers."
+    }
+  ]
+}

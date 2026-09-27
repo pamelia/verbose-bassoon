@@ -1,0 +1,228 @@
+{
+  "id": "a1-a2-professions",
+  "title": "Professions",
+  "description": "Professions and gender agreement after ser.",
+  "stage": "A1-A2",
+  "topic": "people",
+  "order": 5,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "profession-business-owner-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: business owner.",
+      "person": "masculine singular",
+      "answers": [
+        "empresario"
+      ],
+      "answer": "empresario",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-business-owner-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: business owner.",
+      "person": "feminine singular",
+      "answers": [
+        "empresaria"
+      ],
+      "answer": "empresaria",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-photographer-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: photographer.",
+      "person": "masculine singular",
+      "answers": [
+        "fotógrafo"
+      ],
+      "answer": "fotógrafo",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-photographer-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: photographer.",
+      "person": "feminine singular",
+      "answers": [
+        "fotógrafa"
+      ],
+      "answer": "fotógrafa",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-dentist-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: dentist.",
+      "person": "masculine singular",
+      "answers": [
+        "dentista"
+      ],
+      "answer": "dentista",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-dentist-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: dentist.",
+      "person": "feminine singular",
+      "answers": [
+        "dentista"
+      ],
+      "answer": "dentista",
+      "note": "This profession has the same form for men and women."
+    },
+    {
+      "id": "profession-doctor-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: doctor.",
+      "person": "masculine singular",
+      "answers": [
+        "médico"
+      ],
+      "answer": "médico",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-doctor-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: doctor.",
+      "person": "feminine singular",
+      "answers": [
+        "médica"
+      ],
+      "answer": "médica",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-journalist-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: journalist.",
+      "person": "masculine singular",
+      "answers": [
+        "periodista"
+      ],
+      "answer": "periodista",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-journalist-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: journalist.",
+      "person": "feminine singular",
+      "answers": [
+        "periodista"
+      ],
+      "answer": "periodista",
+      "note": "This profession has the same form for men and women."
+    },
+    {
+      "id": "profession-engineer-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: engineer.",
+      "person": "masculine singular",
+      "answers": [
+        "ingeniero"
+      ],
+      "answer": "ingeniero",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-engineer-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: engineer.",
+      "person": "feminine singular",
+      "answers": [
+        "ingeniera"
+      ],
+      "answer": "ingeniera",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-teacher-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: teacher.",
+      "person": "masculine singular",
+      "answers": [
+        "profesor"
+      ],
+      "answer": "profesor",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-teacher-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: teacher.",
+      "person": "feminine singular",
+      "answers": [
+        "profesora"
+      ],
+      "answer": "profesora",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-lawyer-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: lawyer.",
+      "person": "masculine singular",
+      "answers": [
+        "abogado"
+      ],
+      "answer": "abogado",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-lawyer-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: lawyer.",
+      "person": "feminine singular",
+      "answers": [
+        "abogada"
+      ],
+      "answer": "abogada",
+      "note": "The ending agrees with the person."
+    },
+    {
+      "id": "profession-waiter-m",
+      "kind": "Professions",
+      "prompt": "Él es ___.",
+      "translation": "Profession: waiter.",
+      "person": "masculine singular",
+      "answers": [
+        "camarero"
+      ],
+      "answer": "camarero",
+      "note": "After ser, professions normally do not need un or una."
+    },
+    {
+      "id": "profession-waiter-f",
+      "kind": "Professions",
+      "prompt": "Ella es ___.",
+      "translation": "Profession: waiter.",
+      "person": "feminine singular",
+      "answers": [
+        "camarera"
+      ],
+      "answer": "camarera",
+      "note": "The ending agrees with the person."
+    }
+  ]
+}

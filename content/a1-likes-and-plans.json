@@ -1,0 +1,170 @@
+{
+  "id": "a1-likes-and-plans",
+  "title": "Likes and plans",
+  "description": "Talking about preferences, agreement, and simple plans.",
+  "stage": "A1",
+  "topic": "plans",
+  "order": 2,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "like-coffee",
+      "kind": "Likes",
+      "prompt": "Me ___ el café.",
+      "translation": "I like coffee.",
+      "verb": "gustar",
+      "person": "3rd person singular",
+      "clue": "Singular thing liked → gust- + -a",
+      "answers": [
+        "gusta"
+      ],
+      "answer": "gusta",
+      "note": "The thing liked is singular, so use gusta."
+    },
+    {
+      "id": "like-books",
+      "kind": "Likes",
+      "prompt": "Me ___ los libros.",
+      "translation": "I like books.",
+      "verb": "gustar",
+      "person": "3rd person plural",
+      "clue": "Plural things liked → gust- + -an",
+      "answers": [
+        "gustan"
+      ],
+      "answer": "gustan",
+      "note": "The things liked are plural, so use gustan."
+    },
+    {
+      "id": "dont-like",
+      "kind": "Likes",
+      "prompt": "No me ___ correr.",
+      "translation": "I don’t like running.",
+      "verb": "gustar",
+      "person": "3rd person singular",
+      "clue": "An activity counts as singular → gust- + -a",
+      "answers": [
+        "gusta"
+      ],
+      "answer": "gusta",
+      "note": "An infinitive such as correr takes gusta."
+    },
+    {
+      "id": "what-is-up",
+      "kind": "Conversation",
+      "prompt": "How’s it going?",
+      "translation": "Use the short greeting from class.",
+      "answers": [
+        "que tal"
+      ],
+      "answer": "¿Qué tal?",
+      "note": "A common, informal way to ask how things are."
+    },
+    {
+      "id": "free-time",
+      "kind": "Likes & plans",
+      "prompt": "What do you like doing in your free time?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "que te gusta hacer en tu tiempo libre"
+      ],
+      "answer": "¿Qué te gusta hacer en tu tiempo libre?",
+      "note": "An activity after gustar stays in the infinitive."
+    },
+    {
+      "id": "like-chocolate",
+      "kind": "Likes & plans",
+      "prompt": "Nos ___ el chocolate.",
+      "translation": "We like chocolate.",
+      "verb": "gustar",
+      "answers": [
+        "gusta"
+      ],
+      "answer": "gusta",
+      "note": "Chocolate is singular, so use gusta."
+    },
+    {
+      "id": "like-cats",
+      "kind": "Likes & plans",
+      "prompt": "Nos ___ los gatos.",
+      "translation": "We like cats.",
+      "verb": "gustar",
+      "answers": [
+        "gustan"
+      ],
+      "answer": "gustan",
+      "note": "Gatos is plural, so use gustan."
+    },
+    {
+      "id": "me-too",
+      "kind": "Agreeing",
+      "prompt": "Me gusta cocinar. — Me too.",
+      "translation": "Agree in Spanish.",
+      "answers": [
+        "a mi tambien",
+        "yo tambien"
+      ],
+      "answer": "A mí también.",
+      "note": "También agrees with an affirmative statement."
+    },
+    {
+      "id": "me-neither",
+      "kind": "Agreeing",
+      "prompt": "No me gusta correr. — Me neither.",
+      "translation": "Agree in Spanish.",
+      "answers": [
+        "a mi tampoco",
+        "yo tampoco"
+      ],
+      "answer": "A mí tampoco.",
+      "note": "Tampoco agrees with a negative statement."
+    },
+    {
+      "id": "not-me",
+      "kind": "Agreeing",
+      "prompt": "Me gusta correr. — I don’t.",
+      "translation": "Disagree in Spanish.",
+      "answers": [
+        "a mi no",
+        "yo no"
+      ],
+      "answer": "A mí no.",
+      "note": "Use no to disagree with an affirmative statement."
+    },
+    {
+      "id": "but-i-do",
+      "kind": "Agreeing",
+      "prompt": "No me gusta correr. — I do.",
+      "translation": "Disagree in Spanish.",
+      "answers": [
+        "a mi si",
+        "yo si"
+      ],
+      "answer": "A mí sí.",
+      "note": "Use sí to disagree with a negative statement."
+    },
+    {
+      "id": "want-dinner",
+      "kind": "Likes & plans",
+      "prompt": "Do you want to go out for dinner?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "quieres salir a cenar"
+      ],
+      "answer": "¿Quieres salir a cenar?",
+      "note": "Querer is followed by an infinitive."
+    },
+    {
+      "id": "want-beer",
+      "kind": "Likes & plans",
+      "prompt": "I want a beer.",
+      "translation": "Order in Spanish.",
+      "answers": [
+        "quiero una cerveza"
+      ],
+      "answer": "Quiero una cerveza.",
+      "note": "Quiero is the yo form of querer."
+    }
+  ]
+}

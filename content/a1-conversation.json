@@ -1,0 +1,188 @@
+{
+  "id": "a1-conversation",
+  "title": "Conversation essentials",
+  "description": "Greetings, introductions, and useful questions from the first lessons.",
+  "stage": "A1",
+  "topic": "conversation",
+  "order": 1,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "hello",
+      "kind": "Greeting",
+      "prompt": "Hello!",
+      "translation": "Say it in Spanish.",
+      "answers": [
+        "hola"
+      ],
+      "answer": "¡Hola!",
+      "note": "A friendly greeting at any time of day."
+    },
+    {
+      "id": "good-morning",
+      "kind": "Greeting",
+      "prompt": "Good morning.",
+      "translation": "Say it in Spanish.",
+      "answers": [
+        "buenos dias"
+      ],
+      "answer": "Buenos días.",
+      "note": "Use the plural: buenos días."
+    },
+    {
+      "id": "how-are-you",
+      "kind": "Conversation",
+      "prompt": "How are you?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "como estas"
+      ],
+      "answer": "¿Cómo estás?",
+      "note": "Tú uses estás, with an accent."
+    },
+    {
+      "id": "very-well",
+      "kind": "Conversation",
+      "prompt": "Very well, thank you.",
+      "translation": "Reply in Spanish.",
+      "answers": [
+        "muy bien gracias"
+      ],
+      "answer": "Muy bien, gracias.",
+      "note": "A useful whole phrase to retrieve together."
+    },
+    {
+      "id": "and-you",
+      "kind": "Conversation",
+      "prompt": "And you?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "y tu"
+      ],
+      "answer": "¿Y tú?",
+      "note": "Tú has an accent when it means “you”."
+    },
+    {
+      "id": "what-is-your-name",
+      "kind": "Introductions",
+      "prompt": "What is your name?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "como te llamas"
+      ],
+      "answer": "¿Cómo te llamas?",
+      "note": "The reply begins Me llamo…"
+    },
+    {
+      "id": "my-name-is",
+      "kind": "Introductions",
+      "prompt": "My name is Ana.",
+      "translation": "Introduce yourself.",
+      "answers": [
+        "me llamo ana"
+      ],
+      "answer": "Me llamo Ana.",
+      "note": "Literally: I call myself Ana."
+    },
+    {
+      "id": "where-from",
+      "kind": "Introductions",
+      "prompt": "Where are you from?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "de donde eres"
+      ],
+      "answer": "¿De dónde eres?",
+      "note": "Use ser for origin."
+    },
+    {
+      "id": "from-sweden",
+      "kind": "Introductions",
+      "prompt": "I am from Sweden.",
+      "translation": "Reply in Spanish.",
+      "answers": [
+        "soy de suecia"
+      ],
+      "answer": "Soy de Suecia.",
+      "note": "Use ser + de + place."
+    },
+    {
+      "id": "what-work",
+      "kind": "Introductions",
+      "prompt": "What do you do for work?",
+      "translation": "Use the trabajar question from class.",
+      "answers": [
+        "en que trabajas"
+      ],
+      "answer": "¿En qué trabajas?",
+      "note": "You can also ask ¿A qué te dedicas?"
+    },
+    {
+      "id": "what-do-you-do",
+      "kind": "Introductions",
+      "prompt": "What do you do?",
+      "translation": "Use the dedicarse question from class.",
+      "answers": [
+        "a que te dedicas"
+      ],
+      "answer": "¿A qué te dedicas?",
+      "note": "A natural way to ask about someone’s work."
+    },
+    {
+      "id": "age-question",
+      "kind": "Introductions",
+      "prompt": "How old are you?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "cuantos anos tienes"
+      ],
+      "answer": "¿Cuántos años tienes?",
+      "note": "Spanish uses tener, to have, for age."
+    },
+    {
+      "id": "age-answer",
+      "kind": "Introductions",
+      "prompt": "I am forty-two years old.",
+      "translation": "Reply in Spanish.",
+      "answers": [
+        "tengo cuarenta y dos anos"
+      ],
+      "answer": "Tengo cuarenta y dos años.",
+      "note": "Literally: I have forty-two years."
+    },
+    {
+      "id": "children-question",
+      "kind": "Introductions",
+      "prompt": "Do you have children?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "tienes hijos"
+      ],
+      "answer": "¿Tienes hijos?",
+      "note": "Tienes is the tú form of tener."
+    },
+    {
+      "id": "phone-question",
+      "kind": "Introductions",
+      "prompt": "Do you have a mobile phone?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "tienes movil"
+      ],
+      "answer": "¿Tienes móvil?",
+      "note": "Móvil has an accent on the first syllable."
+    },
+    {
+      "id": "email-question",
+      "kind": "Introductions",
+      "prompt": "Do you have an email address?",
+      "translation": "Ask one person informally.",
+      "answers": [
+        "tienes correo electronico"
+      ],
+      "answer": "¿Tienes correo electrónico?",
+      "note": "Correo electrónico means email address."
+    }
+  ]
+}

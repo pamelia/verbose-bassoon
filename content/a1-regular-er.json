@@ -1,0 +1,180 @@
+{
+  "id": "a1-regular-er",
+  "title": "Regular -er verbs",
+  "description": "Present-tense practice with regular -er verbs.",
+  "stage": "A1",
+  "topic": "verbs",
+  "order": 7,
+  "prerequisites": [],
+  "source": "Original exercises based on the learner’s Spanish lessons.",
+  "cards": [
+    {
+      "id": "comer-yo",
+      "kind": "Regular -er verb",
+      "prompt": "Yo ___ fruta por la mañana.",
+      "translation": "I eat fruit in the morning.",
+      "verb": "comer",
+      "person": "1st person singular",
+      "clue": "com- + -o",
+      "answers": [
+        "como"
+      ],
+      "answer": "como",
+      "note": "Yo ends in -o for regular -ar, -er, and -ir verbs."
+    },
+    {
+      "id": "beber-tu",
+      "kind": "Regular -er verb",
+      "prompt": "Tú ___ café.",
+      "translation": "You drink coffee.",
+      "verb": "beber",
+      "person": "2nd person singular",
+      "clue": "beb- + -es",
+      "answers": [
+        "bebes"
+      ],
+      "answer": "bebes",
+      "note": "Regular -er verbs use -es with tú."
+    },
+    {
+      "id": "aprender-el",
+      "kind": "Regular -er verb",
+      "prompt": "Él ___ español.",
+      "translation": "He learns Spanish.",
+      "verb": "aprender",
+      "person": "3rd person singular",
+      "clue": "aprend- + -e",
+      "answers": [
+        "aprende"
+      ],
+      "answer": "aprende",
+      "note": "Regular -er verbs use -e with él, ella, or usted."
+    },
+    {
+      "id": "comer-nosotras",
+      "kind": "Regular -er verb",
+      "prompt": "Nosotras ___ juntas.",
+      "translation": "We eat together.",
+      "verb": "comer",
+      "person": "1st person plural",
+      "clue": "com- + -emos",
+      "answers": [
+        "comemos"
+      ],
+      "answer": "comemos",
+      "note": "Regular -er verbs use -emos with nosotros or nosotras."
+    },
+    {
+      "id": "beber-vosotras",
+      "kind": "Regular -er verb",
+      "prompt": "Vosotras ___ agua.",
+      "translation": "You all drink water.",
+      "verb": "beber",
+      "person": "2nd person plural",
+      "clue": "beb- + -éis",
+      "answers": [
+        "bebeis"
+      ],
+      "answer": "bebéis",
+      "note": "In Spain, regular -er verbs use -éis with vosotros or vosotras."
+    },
+    {
+      "id": "comprender-ellos",
+      "kind": "Regular -er verb",
+      "prompt": "Ellos ___ la pregunta.",
+      "translation": "They understand the question.",
+      "verb": "comprender",
+      "person": "3rd person plural",
+      "clue": "comprend- + -en",
+      "answers": [
+        "comprenden"
+      ],
+      "answer": "comprenden",
+      "note": "Regular -er verbs use -en with ellos or ellas."
+    },
+    {
+      "id": "correr-yo-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Yo ___ en el parque.",
+      "translation": "I run in the park.",
+      "verb": "correr",
+      "person": "1st person singular",
+      "clue": "corr- + o",
+      "answers": [
+        "corro"
+      ],
+      "answer": "corro",
+      "note": "This is the present tense of correr."
+    },
+    {
+      "id": "correr-tu-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Tú ___ en el parque.",
+      "translation": "You run in the park.",
+      "verb": "correr",
+      "person": "2nd person singular",
+      "clue": "corr- + es",
+      "answers": [
+        "corres"
+      ],
+      "answer": "corres",
+      "note": "This is the present tense of correr."
+    },
+    {
+      "id": "correr-ella-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Ella ___ en el parque.",
+      "translation": "She runs in the park.",
+      "verb": "correr",
+      "person": "3rd person singular",
+      "clue": "corr- + e",
+      "answers": [
+        "corre"
+      ],
+      "answer": "corre",
+      "note": "This is the present tense of correr."
+    },
+    {
+      "id": "correr-nosotros-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Nosotros ___ en el parque.",
+      "translation": "We run in the park.",
+      "verb": "correr",
+      "person": "1st person plural",
+      "clue": "corr- + emos",
+      "answers": [
+        "corremos"
+      ],
+      "answer": "corremos",
+      "note": "This is the present tense of correr."
+    },
+    {
+      "id": "correr-vosotros-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Vosotros ___ en el parque.",
+      "translation": "You all run in the park.",
+      "verb": "correr",
+      "person": "2nd person plural",
+      "clue": "corr- + éis",
+      "answers": [
+        "corréis"
+      ],
+      "answer": "corréis",
+      "note": "This is the present tense of correr."
+    },
+    {
+      "id": "correr-ellos-lesson",
+      "kind": "Regular -er verb",
+      "prompt": "Ellos ___ en el parque.",
+      "translation": "They run in the park.",
+      "verb": "correr",
+      "person": "3rd person plural",
+      "clue": "corr- + en",
+      "answers": [
+        "corren"
+      ],
+      "answer": "corren",
+      "note": "This is the present tense of correr."
+    }
+  ]
+}

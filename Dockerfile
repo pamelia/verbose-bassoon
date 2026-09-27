@@ -5,6 +5,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 COPY main.go ./
 COPY dist/ ./dist/
+COPY content/ ./content/
 RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /spanish-study .
 
 FROM gcr.io/distroless/static-debian12:nonroot
