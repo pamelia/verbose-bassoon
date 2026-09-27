@@ -7,13 +7,16 @@
     <meta name="description" content="A short, ad-free Spanish practice session for beginner vocabulary and regular verbs." />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4c542'/%3E%3Cpath d='M15 35h27l-8 8 5 5 17-17-17-17-5 5 8 8H15z' fill='%2319233b'/%3E%3C/svg%3E" />
     <title>¡Dale! · Spanish practice</title>
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=8" />
   </head>
   <body>
     <header class="topbar">
       <a class="brand" href="/" aria-label="¡Dale! home">¡Dale!</a>
       <div class="topbar-meta">
-        <span class="user-greeting" id="user-greeting" hidden></span>
+        <div class="user-menu">
+          <span class="user-greeting" id="user-greeting" hidden></span>
+          <a class="logout" href="/oauth2/sign_out?rd=%2F">Log out</a>
+        </div>
         <div class="streak" aria-label="Practice streak">
           <span aria-hidden="true">☀</span><strong id="streak-count">0</strong><span>day streak</span>
         </div>
