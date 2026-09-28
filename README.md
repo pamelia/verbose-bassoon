@@ -1,6 +1,6 @@
 # ¡Dale!
 
-A tiny, ad-free Spanish practice app with 499 prompts spanning an A1 course. It mixes
+A tiny, ad-free Spanish practice app with 519 prompts spanning an A1 course and teacher-shared expressions. It mixes
 sentence completion, phrase recall, immediate feedback, and lightweight spaced
 practice in a ten-question session. A round can focus on conversation, people
 and professions, likes and plans, verbs, numbers, places, shopping, routines,
