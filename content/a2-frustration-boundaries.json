@@ -1,0 +1,33 @@
+{
+  "id": "a2-frustration-boundaries",
+  "title": "Frustration and boundaries",
+  "description": "Teacher-shared phrases for annoyance, frustration, asking for space, and setting boundaries.",
+  "stage": "A2",
+  "topic": "conversation",
+  "order": 17,
+  "unit": 2,
+  "prerequisites": ["a1-conversation"],
+  "source": "Learner-provided lesson note shared as a WhatsApp image.",
+  "cards": [
+    {"id":"frustration-fed-up","kind":"Frustration","prompt":"I’m fed up.","translation":"Say it in Spanish; match the speaker’s gender.","answers":["estoy harto","estoy harta"],"answer":"Estoy harto/a.","note":"Use harto for a man and harta for a woman."},
+    {"id":"frustration-nerves","kind":"Frustration","prompt":"You’re getting on my nerves.","translation":"Say it to one person informally.","answers":["me estas poniendo de los nervios","me pones de los nervios"],"answer":"Me estás poniendo de los nervios.","note":"Ponerse de los nervios means to become very irritated or nervous."},
+    {"id":"frustration-annoying","kind":"Frustration","prompt":"How annoying.","translation":"Say it about a person; match their gender.","answers":["que pesado","que pesada"],"answer":"¡Qué pesado/a!","note":"Pesado describes an annoying person; its ending agrees with that person."},
+    {"id":"boundary-leave-alone","kind":"Setting boundaries","prompt":"Leave me alone.","translation":"Say it to one person informally.","answers":["dejame en paz"],"answer":"Déjame en paz.","note":"Déjame en paz is direct and means leave me in peace."},
+    {"id":"boundary-dont-bother","kind":"Setting boundaries","prompt":"Don’t bother me.","translation":"Say it to one person informally.","answers":["no me molestes"],"answer":"No me molestes.","note":"This negative tú command uses the present subjunctive form molestes."},
+    {"id":"frustration-enough","kind":"Frustration","prompt":"Enough already.","translation":"Say it firmly in Spanish.","answers":["ya basta","basta ya"],"answer":"Ya basta.","note":"Ya basta and basta ya both mean enough already."},
+    {"id":"frustration-had-enough","kind":"Idiomatic Spanish","prompt":"I’ve had enough.","translation":"Use the informal idiom with narices.","answers":["estoy hasta las narices"],"answer":"Estoy hasta las narices.","note":"Literally up to the nose, this means being completely fed up."},
+    {"id":"frustration-cant-take-more","kind":"Frustration","prompt":"I can’t take it anymore.","translation":"Say it in Spanish.","answers":["no aguanto mas"],"answer":"No aguanto más.","note":"Aguantar means to endure or put up with something."},
+    {"id":"frustration-fed-up-with-you","kind":"Frustration","prompt":"I’m fed up with you.","translation":"Say it to one person; match the speaker’s gender.","answers":["me tienes harto","me tienes harta"],"answer":"Me tienes harto/a.","note":"The ending of harto or harta agrees with the speaker, not the listener."},
+    {"id":"frustration-what-rage","kind":"Frustration","prompt":"How frustrating.","translation":"Use the short expression with rabia.","answers":["que rabia"],"answer":"¡Qué rabia!","note":"Qué rabia expresses frustration or annoyance."},
+    {"id":"frustration-drives-crazy","kind":"Idiomatic Spanish","prompt":"This drives me crazy.","translation":"Use the idiom with quicio.","answers":["esto me saca de quicio"],"answer":"Esto me saca de quicio.","note":"Sacar de quicio means to drive someone up the wall."},
+    {"id":"frustration-losing-patience","kind":"Frustration","prompt":"I’m losing my patience.","translation":"Say it in Spanish.","answers":["estoy perdiendo la paciencia"],"answer":"Estoy perdiendo la paciencia.","note":"Estar + gerund expresses an action in progress."},
+    {"id":"frustration-bad-mood-cause","kind":"Mood","prompt":"It puts me in a bad mood.","translation":"Say it in Spanish.","answers":["me pone de mal humor"],"answer":"Me pone de mal humor.","note":"Poner de mal humor means to put someone in a bad mood."},
+    {"id":"frustration-no-patience","kind":"Frustration","prompt":"I have no patience for this.","translation":"Say it in Spanish.","answers":["no tengo paciencia para esto"],"answer":"No tengo paciencia para esto.","note":"Tener paciencia means to have patience."},
+    {"id":"frustration-nuisance","kind":"Frustration","prompt":"What a nuisance.","translation":"Use the short expression with fastidio.","answers":["que fastidio"],"answer":"¡Qué fastidio!","note":"Fastidio means annoyance, bother, or nuisance."},
+    {"id":"mood-bad-informal","kind":"Informal Spanish","prompt":"I’m in a bad mood.","translation":"Use the strong informal expression common in Spain.","answers":["estoy de mala leche"],"answer":"Estoy de mala leche.","note":"This is informal and somewhat crude; avoid it in polite or professional settings."},
+    {"id":"boundary-dont-give-me-that","kind":"Setting boundaries","prompt":"Don’t give me that.","translation":"Use the expression with venir and eso.","answers":["no me vengas con eso"],"answer":"No me vengas con eso.","note":"Literally do not come to me with that, this rejects an excuse or argument."},
+    {"id":"boundary-stop-already","kind":"Setting boundaries","prompt":"Just stop it already.","translation":"Say it to one person informally.","answers":["dejalo ya"],"answer":"Déjalo ya.","note":"Déjalo ya means stop it or leave it now."},
+    {"id":"boundary-dont-make-angry","kind":"Setting boundaries","prompt":"Don’t make me angry.","translation":"Say it to one person informally.","answers":["no me hagas enfadar","no me hagas enojar"],"answer":"No me hagas enfadar.","note":"Enfadar is common in Spain; enojar is common in much of Latin America."},
+    {"id":"mood-clear-head","kind":"Mood","prompt":"I need to clear my head.","translation":"Say it in Spanish.","answers":["necesito despejarme"],"answer":"Necesito despejarme.","note":"Despejarse means to clear one’s head or get some mental space."}
+  ]
+}

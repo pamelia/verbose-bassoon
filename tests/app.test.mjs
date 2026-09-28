@@ -24,10 +24,10 @@ test("authenticated learners can log out through the proxy", () => {
 });
 
 test("the lesson deck is broad, grouped, and free of duplicate ids", () => {
-  assert.equal(cards.length, 499);
+  assert.equal(cards.length, 519);
   assert.equal(new Set(cards.map(({ id }) => id)).size, cards.length);
   assert.deepEqual(new Set(cards.map(({ topic }) => topic)), new Set(["conversation", "plans", "numbers", "people", "verbs", "places", "shopping", "routines", "food", "abilities"]));
-  assert.equal(content.packs.length, 16);
+  assert.equal(content.packs.length, 17);
   assert.ok(content.packs.every(({ id, title, stage, cards }) => id && title && stage && cards.length));
 });
 
@@ -38,9 +38,17 @@ test("future course units contain substantial original practice", () => {
 });
 
 test("future units stay out of practice until the learner unlocks them", () => {
-  assert.equal(cardsForUnit(cards, 2).length, 205);
-  assert.equal(cardsForUnit(cards, 3).length, 247);
-  assert.equal(cardsForUnit(cards, 9).length, 499);
+  assert.equal(cardsForUnit(cards, 2).length, 225);
+  assert.equal(cardsForUnit(cards, 3).length, 267);
+  assert.equal(cardsForUnit(cards, 9).length, 519);
+});
+
+test("teacher-note frustration phrases preserve register and gender guidance", () => {
+  const pack = content.packs.find(({ id }) => id === "a2-frustration-boundaries");
+  assert.equal(pack.cards.length, 20);
+  assert.equal(pack.stage, "A2");
+  assert.match(pack.cards.find(({ id }) => id === "mood-bad-informal").note, /informal/i);
+  assert.deepEqual(pack.cards.find(({ id }) => id === "frustration-fed-up").answers, ["estoy harto", "estoy harta"]);
 });
 
 test("profession prompts identify the profession instead of asking for a guess", () => {
