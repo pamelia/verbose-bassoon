@@ -17,7 +17,7 @@ spec:
       - name: ghcr-pull-secret
       containers:
       - name: app
-        image: ghcr.io/pamelia/verbose-bassoon:1790529669-0af526c # {"$imagepolicy": "flux-system:dale"}
+        image: ghcr.io/pamelia/verbose-bassoon:1790613018-3303366 # {"$imagepolicy": "flux-system:dale"}
         env:
         - name: DATABASE_URL
           valueFrom:
