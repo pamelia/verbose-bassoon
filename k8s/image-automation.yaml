@@ -28,7 +28,6 @@ metadata:
   name: dale-images
   namespace: flux-system
 spec:
-  suspend: true
   git:
     checkout:
       ref:
