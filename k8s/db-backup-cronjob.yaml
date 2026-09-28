@@ -34,7 +34,7 @@ spec:
                 - |
                   ts="$(date -u +%Y%m%dT%H%M%SZ)"
                   base="dale-${ts}"
-                  pg_dump --format=custom --compress=9 --no-owner --no-privileges \
+                  pg_dump --format=custom --compress=9 --no-privileges \
                     --file="/backup/${base}.dump" "${DATABASE_URL}"
                   cd /backup
                   sha256sum "${base}.dump" > "${base}.dump.sha256"
