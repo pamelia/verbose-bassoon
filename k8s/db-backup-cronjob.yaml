@@ -1,0 +1,99 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dale-postgres-backup
+  namespace: dale
+spec:
+  schedule: "27 3 * * *"
+  timeZone: UTC
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 86400
+      backoffLimit: 0
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+            - name: backup
+              emptyDir: {}
+          initContainers:
+            - name: dump
+              image: postgres:17-bookworm
+              env:
+                - name: DATABASE_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-postgres-app
+                      key: uri
+              command:
+                - /bin/sh
+                - -ec
+                - |
+                  ts="$(date -u +%Y%m%dT%H%M%SZ)"
+                  base="dale-${ts}"
+                  pg_dump --format=custom --compress=9 --no-owner --no-privileges \
+                    --file="/backup/${base}.dump" "${DATABASE_URL}"
+                  cd /backup
+                  sha256sum "${base}.dump" > "${base}.dump.sha256"
+                  printf 'base=%s\n' "${base}" > metadata.env
+              volumeMounts:
+                - name: backup
+                  mountPath: /backup
+          containers:
+            - name: upload
+              image: rclone/rclone:1.71.2
+              env:
+                - name: S3_BUCKET
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_BUCKET
+                - name: S3_PREFIX
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_PREFIX
+                - name: RCLONE_CONFIG_HETZ_TYPE
+                  value: s3
+                - name: RCLONE_CONFIG_HETZ_PROVIDER
+                  value: Other
+                - name: RCLONE_CONFIG_HETZ_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_ACCESS_KEY_ID
+                - name: RCLONE_CONFIG_HETZ_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_SECRET_ACCESS_KEY
+                - name: RCLONE_CONFIG_HETZ_ENDPOINT
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_ENDPOINT
+                - name: RCLONE_CONFIG_HETZ_REGION
+                  valueFrom:
+                    secretKeyRef:
+                      name: dale-db-backup-s3
+                      key: S3_REGION
+                - name: RCLONE_CONFIG_HETZ_ACL
+                  value: private
+              command:
+                - /bin/sh
+                - -ec
+                - |
+                  . /backup/metadata.env
+                  key_prefix="${S3_PREFIX%/}/$(date -u +%Y/%m/%d)"
+                  dump_key="${key_prefix}/${base}.dump"
+                  rclone copyto "/backup/${base}.dump" "hetz:${S3_BUCKET}/${dump_key}"
+                  rclone copyto "/backup/${base}.dump.sha256" "hetz:${S3_BUCKET}/${dump_key}.sha256"
+                  rclone lsf "hetz:${S3_BUCKET}/${dump_key}" --files-only | grep -qx "${base}.dump"
+                  rclone lsf "hetz:${S3_BUCKET}/${dump_key}.sha256" --files-only | grep -qx "${base}.dump.sha256"
+                  echo "backup_key=${dump_key}"
+              volumeMounts:
+                - name: backup
+                  mountPath: /backup
